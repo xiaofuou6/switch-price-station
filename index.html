@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NS史低情报站 · Switch 价格追踪与推荐工作台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='20' height='12' rx='4' fill='%230E1524'/%3E%3Crect x='2' y='6' width='20' height='12' rx='4' fill='none' stroke='%232ED47D' stroke-width='2'/%3E%3Ccircle cx='9' cy='12' r='2.6' fill='%23F5A623'/%3E%3Ccircle cx='15' cy='12' r='2.6' fill='%2338BDF8'/%3E%3C/svg%3E">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#0E1524; --panel:#141D2E; --panel2:#182338; --line:#24304A; --line2:#2E3D5E;
+  --tx:#E6EDF7; --tx2:#8A9BB8; --tx3:#5E7194;
+  --green:#2ED47D; --amber:#F5A623; --red:#F0554A; --cyan:#38BDF8;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+button,input,select,textarea{font-family:inherit}
+html{scroll-behavior:auto}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;font-size:14px;line-height:1.55}
+a{color:var(--cyan);text-decoration:none}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#2A3855;border-radius:6px;border:2px solid var(--bg)}
+::-webkit-scrollbar-track{background:transparent}
+.app{display:flex;min-height:100vh}
+/* ===== 侧边栏 ===== */
+.side{width:224px;flex:0 0 224px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:18px 16px 14px;border-bottom:1px solid var(--line)}
+.brand .logo{width:34px;height:34px;flex:0 0 34px}
+.brand h1{font-size:16px;font-weight:800;letter-spacing:.5px}
+.brand p{font-size:11px;color:var(--tx2);margin-top:2px}
+.nav{flex:1;padding:10px 8px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--tx2);font-weight:600;margin-bottom:2px;border:1px solid transparent}
+.nav-item svg{flex:0 0 18px;width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-item:hover{background:var(--panel2);color:var(--tx)}
+.nav-item.active{background:var(--panel2);color:var(--green);border-color:var(--line2)}
+.nav-item .count{margin-left:auto;font-size:11px;background:var(--panel2);border:1px solid var(--line2);padding:1px 7px;border-radius:10px;color:var(--tx2)}
+.nav-item.active .count{color:var(--green)}
+.side-foot{padding:14px 16px;border-top:1px solid var(--line);font-size:11px;color:var(--tx3);line-height:1.6}
+.side-foot b{color:var(--tx2)}
+/* ===== 主区 ===== */
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;flex-wrap:wrap}
+.topbar h2{font-size:17px;font-weight:800;margin-right:auto}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);background:var(--panel2);border:1px solid var(--line2);padding:4px 10px;border-radius:20px}
+.chip.green{color:var(--green);border-color:rgba(46,212,125,.4)}
+.chip.amber{color:var(--amber);border-color:rgba(245,166,35,.4)}
+.chip.red{color:var(--red);border-color:rgba(240,85,74,.4)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);background:var(--panel2);color:var(--tx);padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--green);color:var(--green)}
+.btn.primary{background:var(--green);border-color:var(--green);color:#06251A;font-weight:800}
+.btn.primary:hover{filter:brightness(1.1);color:#06251A}
+.btn.ghost{background:transparent}
+.btn.danger:hover{border-color:var(--red);color:var(--red)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.view{padding:20px;max-width:1280px;width:100%;margin:0 auto}
+.section-title{font-size:15px;font-weight:800;margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+.section-title:first-child{margin-top:0}
+.section-title .bar{width:4px;height:16px;background:var(--green);border-radius:2px}
+.section-title .more{margin-left:auto;font-size:12px;color:var(--tx2);font-weight:500}
+/* ===== 卡片 ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.stat-card .num{font-size:30px;font-weight:900;line-height:1.1;margin-top:6px}
+.stat-card .lbl{font-size:12px;color:var(--tx2);font-weight:600}
+.stat-card .sub{font-size:11px;color:var(--tx3);margin-top:4px}
+.stat-card.g .num{color:var(--green)} .stat-card.a .num{color:var(--amber)} .stat-card.r .num{color:var(--red)} .stat-card.c .num{color:var(--cyan)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:12px}
+.game-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px;cursor:pointer;transition:.15s;position:relative;display:flex;flex-direction:column;gap:9px}
+.game-card:hover{border-color:var(--line2);transform:translateY(-2px)}
+.game-card .g-top{display:flex;align-items:flex-start;gap:8px}
+.game-card .g-name{font-weight:800;font-size:15px;line-height:1.3}
+.game-card .g-en{font-size:11px;color:var(--tx3);margin-top:2px}
+.game-card .g-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--panel2);border:1px solid var(--line2);color:var(--tx2)}
+.tag.g{color:var(--green);border-color:rgba(46,212,125,.35)}
+.tag.a{color:var(--amber);border-color:rgba(245,166,35,.35)}
+.tag.r{color:var(--red);border-color:rgba(240,85,74,.35)}
+.tag.c{color:var(--cyan);border-color:rgba(56,189,248,.35)}
+.game-card .g-prices{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.price-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;background:var(--panel2);border:1px solid var(--line2);padding:3px 8px;border-radius:7px;color:var(--tx)}
+.price-chip b{font-weight:800}
+.price-chip.low{color:var(--green);border-color:rgba(46,212,125,.5);background:rgba(46,212,125,.08)}
+.price-chip.wait{color:var(--amber);border-color:rgba(245,166,35,.45)}
+.price-chip.tbd{color:var(--tx3);border-style:dashed}
+.game-card .g-foot{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:9px}
+.game-card .g-cover{height:104px;border-radius:8px;overflow:hidden;background:#0B111D;margin-bottom:2px}
+.game-card .g-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.game-card .g-cover .no-cover{display:none;width:100%;height:100%;align-items:center;justify-content:center;color:var(--tx3);font-size:12px}
+/* ===== 试玩 Demo ===== */
+.demo-box{position:relative;border-radius:10px;overflow:hidden;background:#0B111D;margin-bottom:12px}
+.demo-box img{display:block;width:100%;max-height:400px;object-fit:cover;object-position:center}
+.demo-box .demo-fallback{display:none;align-items:center;justify-content:center;min-height:180px;color:var(--tx3);font-size:13px;gap:8px}
+.demo-box .demo-bar{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(8,12,22,.88));padding:26px 14px 10px;font-size:12px;color:var(--tx2)}
+.demo-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.stars{color:var(--amber);font-size:12px;letter-spacing:1px}
+.verdict{font-size:11px;color:var(--tx2);margin-left:auto}
+.badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.5px}
+.badge.low{background:rgba(46,212,125,.15);color:var(--green);border:1px solid rgba(46,212,125,.4)}
+.badge.onsale{background:rgba(56,189,248,.13);color:var(--cyan);border:1px solid rgba(56,189,248,.4)}
+.badge.pc{background:rgba(240,85,74,.13);color:var(--red);border:1px solid rgba(240,85,74,.4)}
+.badge.wait{background:rgba(245,166,35,.12);color:var(--amber);border:1px solid rgba(245,166,35,.4)}
+/* ===== 表格 ===== */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+table.tbl{width:100%;border-collapse:collapse;background:var(--panel);table-layout:fixed;min-width:760px}
+table.tbl th{background:var(--panel2);color:var(--tx2);font-size:12px;font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
+table.tbl tr:last-child td{border-bottom:none}
+table.tbl tr:hover td{background:rgba(46,212,125,.03)}
+/* ===== 工具栏 ===== */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.toolbar .search{flex:1;min-width:200px;position:relative}
+.toolbar .search input{width:100%;background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:9px 12px 9px 34px;color:var(--tx);font-size:13px;outline:none}
+.toolbar .search input:focus{border-color:var(--green)}
+.toolbar .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--tx3);fill:none;stroke-width:2}
+select, input[type=text], input[type=number], input[type=date], textarea{background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:8px 10px;color:var(--tx);font-size:13px;outline:none;font-family:inherit}
+select:focus, input:focus, textarea:focus{border-color:var(--green)}
+select option{background:var(--panel2)}
+/* ===== 详情 ===== */
+.detail-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin-bottom:16px}
+.detail-head .t1{font-size:24px;font-weight:900;line-height:1.2}
+.detail-head .t2{font-size:13px;color:var(--tx2);margin-top:4px}
+.detail-head .acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.panel h3{font-size:14px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.panel h3 .bar{width:4px;height:14px;background:var(--green);border-radius:2px}
+.kv{display:flex;flex-wrap:wrap;gap:6px}
+.kv-item{background:var(--panel2);border:1px solid var(--line2);border-radius:8px;padding:8px 12px;min-width:100px}
+.kv-item .k{font-size:11px;color:var(--tx3)}
+.kv-item .v{font-weight:800;margin-top:2px;font-size:14px}
+.alert-box{display:flex;gap:10px;padding:12px 14px;border-radius:var(--radius);border:1px solid;margin-bottom:12px;font-size:13px}
+.alert-box.info{background:rgba(56,189,248,.07);border-color:rgba(56,189,248,.3);color:var(--cyan)}
+.alert-box.warn{background:rgba(245,166,35,.07);border-color:rgba(245,166,35,.35);color:var(--amber)}
+.alert-box.good{background:rgba(46,212,125,.07);border-color:rgba(46,212,125,.35);color:var(--green)}
+.alert-box.bad{background:rgba(240,85,74,.07);border-color:rgba(240,85,74,.35);color:var(--red)}
+.list-line{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);align-items:baseline;font-size:13px}
+.list-line:last-child{border-bottom:none}
+.list-line .d{color:var(--tx3);font-size:12px;flex:0 0 76px}
+.list-line .txt{flex:1}
+.list-line .tag-s{flex:0 0 auto}
+.chart-box{width:100%;height:320px}
+/* ===== 弹窗 / toast ===== */
+.overlay{position:fixed;inset:0;background:rgba(5,10,20,.7);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}
+.modal{background:var(--panel);border:1px solid var(--line2);border-radius:14px;width:100%;max-width:560px;max-height:86vh;overflow-y:auto;padding:20px}
+.modal h3{font-size:16px;font-weight:800;margin-bottom:16px}
+.form-row{margin-bottom:12px}
+.form-row label{display:block;font-size:12px;color:var(--tx2);margin-bottom:5px;font-weight:600}
+.form-row .hint{font-size:11px;color:var(--tx3);margin-top:4px}
+.form-inline{display:flex;gap:8px;flex-wrap:wrap}
+.form-inline .form-row{flex:1;min-width:120px}
+.modal .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
+#toast-wrap{position:fixed;top:16px;right:16px;z-index:200;display:flex;flex-direction:column;gap:8px;max-width:340px}
+.toast{background:var(--panel2);border:1px solid var(--line2);border-left:3px solid var(--green);border-radius:8px;padding:10px 14px;font-size:13px;box-shadow:0 6px 24px rgba(0,0,0,.4);animation:tin .2s ease}
+.toast.warn{border-left-color:var(--amber)}
+.toast.err{border-left-color:var(--red)}
+@keyframes tin{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
+/* ===== 生成器 ===== */
+.gen-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:14px}
+.gen-card .g-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.gen-card .g-head h3{font-size:15px;font-weight:800}
+.gen-card .g-head .btn{margin-left:auto}
+.gen-out{background:#0B111E;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13px;white-space:pre-wrap;line-height:1.75;max-height:340px;overflow-y:auto;color:#C9D6EA}
+.gen-out .hl{color:var(--green);font-weight:700}
+.gen-out .hl2{color:var(--amber);font-weight:700}
+/* ===== 评论选题 ===== */
+.idea-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:8px}
+.idea-item.done{opacity:.55}
+.idea-item .txt{flex:1;font-size:13px}
+.idea-item .meta{font-size:11px;color:var(--tx3)}
+.empty{text-align:center;color:var(--tx3);padding:36px 12px;font-size:13px}
+.empty b{display:block;font-size:15px;color:var(--tx2);margin-bottom:6px}
+@media (max-width:960px){
+  .app{flex-direction:column}
+  .side{width:100%;flex:none;height:auto;position:static;flex-direction:row;align-items:center;overflow-x:auto}
+  .brand{border-bottom:none;padding:10px 14px}
+  .brand h1{font-size:14px}.brand p{display:none}
+  .nav{display:flex;padding:6px 8px;flex:none}
+  .nav-item{white-space:nowrap;padding:10px 12px}
+  .side-foot{display:none}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .chart-box{height:260px}
+}
+@media (max-width:560px){
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .view{padding:12px}
+  .topbar{padding:10px 12px}
+  .detail-head .t1{font-size:20px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="5" fill="#141D2E" stroke="#2ED47D" stroke-width="2.4"/><circle cx="15" cy="20" r="3.4" fill="#F5A623"/><circle cx="25" cy="20" r="3.4" fill="#38BDF8"/><path d="M13 20h4M23 20h4" stroke="#0E1524" stroke-width="1"/></svg>
+      <div><h1>NS史低情报站</h1><p>Switch 价格追踪 · 口碑推荐</p></div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-foot" id="sideFoot"></div>
+  </aside>
+  <main class="main">
+    <div class="topbar" id="topbar"></div>
+    <div class="view" id="view"></div>
+  </main>
+</div>
+<div id="overlay-root"></div>
+<div id="toast-wrap"></div>
+<script>
+"use strict";
+/* ============ 常量 ============ */
+const REGIONS = [
+  {key:'jp',  label:'日区', currency:'JPY', sym:'¥'},
+  {key:'hk',  label:'港区', currency:'HKD', sym:'HK$'},
+  {key:'us',  label:'美区', currency:'USD', sym:'$'},
+  {key:'br',  label:'巴西区', currency:'BRL', sym:'R$'},
+  {key:'nz',  label:'新西兰区', currency:'NZD', sym:'NZ$'},
+  {key:'cart',label:'卡带参考', currency:'CNY', sym:'¥'}
+];
+const GENRES = ['策略','开放世界','动作RPG','共斗','双人合作','格斗','体育','冒险','肉鸽','体感','种田模拟','银河城','喜剧','射击','横版动作','刷宝'];
+const NAV = [
+  {id:'dashboard', label:'仪表盘'},
+  {id:'library', label:'游戏库'},
+  {id:'watchlist', label:'蹲折扣清单'},
+  {id:'reviews', label:'好不好玩'},
+  {id:'studio', label:'内容工作台'},
+  {id:'settings', label:'设置与数据'}
+];
+const NAV_ICONS = {
+  dashboard:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+  library:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="4" rx="1.5"/><rect x="3" y="10" width="18" height="4" rx="1.5"/><rect x="3" y="17" width="18" height="4" rx="1.5"/></svg>',
+  watchlist:'<svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/></svg>',
+  reviews:'<svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.3 1.1 6-5.4-2.9-5.4 2.9 1.1-6L3.2 9.4l6.1-.8z"/></svg>',
+  studio:'<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+  settings:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1h.2a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg>'
+};
+/* ============ 工具函数 ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+const daysDiff = (a,b) => Math.round((new Date(a)-new Date(b))/86400000);
+const stars = s => { s=Math.max(0,Math.min(5,s||0)); return '★'.repeat(Math.round(s)) + '☆'.repeat(5-Math.round(s)); };
+function cny(v, cur){ return Math.round((v||0) * (DB.meta.rates[cur]||1) * 10)/10; }
+function fmtPrice(reg){
+  if(!reg) return '<span class="price-chip tbd">待补录</span>';
+  if(reg.tbd || reg.cur==null) return '<span class="price-chip tbd">待补录</span>';
+  let main = '¥'+reg.cur;
+  if(reg.nativeCur != null && reg.currency && reg.currency!=='CNY') main += '（'+reg.nativeCur+reg.currency+'）';
+  const cls = reg.isLow?'low':(reg.onSale?'wait':'');
+  return '<span class="price-chip'+(cls?' '+cls:'')+'">'+main+'</span>';
+}
+function toast(msg, type){
+  const w=document.createElement('div'); w.className='toast'+(type?' '+type:''); w.textContent=msg;
+  $('#toast-wrap').appendChild(w);
+  setTimeout(()=>w.remove(), 3600);
+}
+function copyText(txt){
+  const done = ()=>toast('已复制，可直接粘贴到笔记/动态');
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, ()=>fallback()); }
+  else fallback();
+  function fallback(){ const ta=document.createElement('textarea'); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+}
+function openModal(html){
+  const root=$('#overlay-root');
+  root.innerHTML='<div class="overlay" onclick="if(event.target===this)this.remove()"><div class="modal">'+html+'</div></div>';
+}
+function closeModal(){ $('#overlay-root').innerHTML=''; }
+/* ============ 种子数据 ============ */
+function seed(){
+  const games = [
+    {id:'civ6', name:'文明6', en:'Sid Meier\'s Civilization VI', genres:['策略','回合制'], zh:true, players:'1人',
+     regions:{hk:{cur:40,low:40,lowDate:'2026-09-08',saleEnd:'2026-09-27',onSale:true}, jp:{cur:27,low:27,lowDate:'2026-09-08',saleEnd:'2026-09-27',onSale:true}, br:{cur:40,low:40,lowDate:'2026-08-20',saleEnd:'2026-09-27',onSale:true}},
+     history:[{d:'2026-06-20',r:'hk',p:52,t:'sale',note:'2.5折'},{d:'2026-08-20',r:'hk',p:45,t:'sale',note:'2折'},{d:'2026-08-20',r:'br',p:40,t:'low',note:'2折'},{d:'2026-09-08',r:'hk',p:40,t:'low',note:'2折史低'},{d:'2026-09-08',r:'jp',p:27,t:'low',note:'2折史低'}],
+     rating:{community:4.6,fun:5,diff:'上手易精通难',hours:'百小时起',verdict:'2折史低，策略迷闭眼入'},
+     suitability:['策略迷','深度思考党','碎片时间玩家'], tags:['经典','掌机友好','烧时间'],
+     pcNote:'', video:{title:'',url:''},
+     watch:{on:true,target:40,region:'hk'},
+     comments:[{c:'评论区高频：文明6好玩吗？适合什么人群？',src:'评论区',d:'2026-09-10'}]},
+    {id:'hogwarts', name:'霍格沃茨之遗（数字豪华版）', en:'Hogwarts Legacy', genres:['开放世界','动作RPG'], zh:true, players:'1人',
+     regions:{hk:{cur:70,low:70,lowDate:'2026-08-09',saleEnd:'2026-08-09',onSale:false}, jp:{cur:63,low:63,lowDate:'2026-08-09',saleEnd:'2026-08-09',onSale:false}},
+     history:[{d:'2026-08-09',r:'hk',p:70,t:'low',note:'1.5折史低'},{d:'2026-08-09',r:'jp',p:63,t:'low',note:'1.5折史低'}],
+     rating:{community:4.3,fun:4,diff:'适中',hours:'40-60小时',verdict:'哈迷必入，路人建议等PC'},
+     suitability:['哈利波特粉丝','便携党','能接受降画质'], tags:['粉丝向','NS体验一般'],
+     pcNote:'NS版画质缩水明显、加载偏慢，评论区普遍劝退NS版推荐PC；只有便携刚需才考虑NS，否则等Steam打折。',
+     video:{title:'',url:''}, watch:{on:true,target:75,region:'hk'},
+     comments:[{c:'评论区：推荐玩吗？直接劝退NS版，推荐PC版',src:'评论区',d:'2026-08-12'}]},
+    {id:'mhrsb', name:'怪物猎人 崛起+曙光', en:'MHR: Sunbreak', genres:['共斗','动作'], zh:true, players:'1-4人',
+     regions:{hk:{cur:63,low:63,lowDate:'2026-06-07',saleEnd:'2026-06-30',onSale:false}, jp:{cur:41,low:41,lowDate:'2026-06-07',saleEnd:'2026-06-30',onSale:false}},
+     history:[{d:'2026-06-07',r:'hk',p:63,t:'low',note:'2折史低'},{d:'2026-06-07',r:'jp',p:41,t:'low',note:'2折史低'}],
+     rating:{community:4.7,fun:5,diff:'有学习曲线',hours:'100小时+',verdict:'共斗天花板之一，2折可闭眼入'},
+     suitability:['联机玩家','动作游戏爱好者'], tags:['联机','常青','中文'],
+     pcNote:'', video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'mhr', name:'怪物猎人 崛起', en:'Monster Hunter Rise', genres:['共斗','动作'], zh:true, players:'1-4人',
+     regions:{hk:{cur:52,low:52,lowDate:'2026-06-07',saleEnd:'2026-06-30',onSale:false}, jp:{cur:34,low:34,lowDate:'2026-06-07',saleEnd:'2026-06-30',onSale:false}},
+     history:[{d:'2026-06-07',r:'hk',p:52,t:'low',note:'2折史低'},{d:'2026-06-07',r:'jp',p:34,t:'low',note:'2折史低'}],
+     rating:{community:4.6,fun:5,diff:'有学习曲线',hours:'80小时+',verdict:'本体2折更香，曙光DLC可后补'},
+     suitability:['联机玩家','动作游戏爱好者'], tags:['联机','中文'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'splitfiction', name:'双影奇境（Switch2版）', en:'Split Fiction', genres:['双人合作','动作冒险'], zh:true, players:'2人',
+     regions:{hk:{cur:222,low:222,lowDate:'2026-09-04',saleEnd:'2026-09-13',onSale:false}, jp:{cur:191,low:191,lowDate:'2026-09-04',saleEnd:'2026-09-13',onSale:false}, us:{cur:220,low:220,lowDate:'2026-06-26',saleEnd:'2026-07-09',onSale:false}, br:{cur:211,low:211,lowDate:'2026-06-26',saleEnd:'2026-07-09',onSale:false}},
+     history:[{d:'2026-06-26',r:'us',p:220,t:'low',note:'6.5折新史低'},{d:'2026-06-26',r:'br',p:211,t:'low',note:'6.5折新史低'},{d:'2026-09-04',r:'hk',p:222,t:'low',note:'6.5折史低'},{d:'2026-09-04',r:'jp',p:191,t:'low',note:'6.5折史低'}],
+     rating:{community:4.8,fun:5,diff:'适中',hours:'15-20小时',verdict:'年度双人神作，Switch2版体验好'},
+     suitability:['情侣/好友双人','合作游戏爱好者'], tags:['双人','神作','Switch2'],
+     pcNote:'PC画质上限更高；Switch2版便携加分，双人线下同屏方便。',
+     video:{title:'',url:''}, watch:{on:true,target:200,region:'jp'}, comments:[]},
+    {id:'nba2k26', name:'NBA 2K26（Switch2版）', en:'NBA 2K26', genres:['体育'], zh:true, players:'1-2人',
+     regions:{hk:{cur:46,low:46,lowDate:'2026-07-26',saleEnd:'2026-07-26',onSale:false}, jp:{cur:36,low:36,lowDate:'2026-07-26',saleEnd:'2026-07-26',onSale:false}},
+     history:[{d:'2026-07-26',r:'hk',p:46,t:'low',note:'1折新史低'},{d:'2026-07-26',r:'jp',p:36,t:'low',note:'1折新史低'}],
+     rating:{community:3.6,fun:3,diff:'易上手',hours:'年货',verdict:'体育年货，1折尝鲜可以'},
+     suitability:['篮球迷','年货党'], tags:['体育','年货','Switch2'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'sf6', name:'街头霸王6（Switch2版）', en:'Street Fighter 6', genres:['格斗'], zh:true, players:'1-2人',
+     regions:{hk:{cur:124,low:124,lowDate:'2026-06-07',saleEnd:'2026-06-30',onSale:false}, jp:{cur:103,low:103,lowDate:'2026-07-30',saleEnd:'2026-08-24',onSale:false}},
+     history:[{d:'2026-06-07',r:'hk',p:124,t:'low',note:'5折史低'},{d:'2026-06-07',r:'jp',p:106,t:'sale',note:'5折'},{d:'2026-07-30',r:'jp',p:103,t:'low',note:'5折史低'}],
+     rating:{community:4.8,fun:5,diff:'上手易精通难',hours:'不限',verdict:'格斗天花板（MC92），Switch2版表现好'},
+     suitability:['格斗玩家','竞技党'], tags:['格斗','竞技','Switch2'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'jp'}, comments:[]},
+    {id:'ittakestwo', name:'双人成行', en:'It Takes Two', genres:['双人合作','动作冒险'], zh:true, players:'2人',
+     regions:{br:{cur:129,low:129,lowDate:'2026-06-26',saleEnd:'2026-07-09',onSale:false}, us:{cur:135,low:135,lowDate:'2026-06-26',saleEnd:'2026-07-09',onSale:false}},
+     history:[{d:'2026-06-26',r:'br',p:129,t:'low',note:'5折史低'},{d:'2026-06-26',r:'us',p:135,t:'low',note:'5折史低'}],
+     rating:{community:4.8,fun:5,diff:'适中',hours:'12-15小时',verdict:'双人游戏必玩，5折必入'},
+     suitability:['情侣/好友双人'], tags:['双人','必玩'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:true,target:130,region:'us'}, comments:[]},
+    {id:'witcher3', name:'巫师3 狂猎 完整版', en:'The Witcher 3: Wild Hunt', genres:['开放世界','动作RPG'], zh:true, players:'1人',
+     regions:{hk:{cur:109,low:109,lowDate:'2025-08-28',saleEnd:'2025-09-15',onSale:false}},
+     history:[{d:'2025-08-28',r:'hk',p:109,t:'low',note:'2.5折史低'},{d:'2026-06-28',r:'hk',p:87,t:'sale',note:'夏季促销'},{d:'2026-06-28',r:'hk',p:87,t:'sale',note:'夏季促销'}],
+     rating:{community:4.9,fun:5,diff:'适中',hours:'100小时+',verdict:'NS移植标杆之一，掌机偏糊但值得'},
+     suitability:['剧情党','开放世界爱好者'], tags:['剧情神作','移植标杆','NS体验一般'],
+     pcNote:'PC版画质/帧数碾压，NS版胜在便携；完整版含《石之心》《血与酒》两部大型DLC。',
+     video:{title:'',url:''}, watch:{on:true,target:100,region:'hk'}, comments:[]},
+    {id:'botw', name:'塞尔达传说 旷野之息', en:'The Legend of Zelda: Breath of the Wild', genres:['冒险','开放世界'], zh:true, players:'1人',
+     regions:{cart:{cur:235,low:213,lowDate:'2026-09-11',saleEnd:null,onSale:false}, hk:{cur:null,tbd:true}},
+     history:[{d:'2026-09-11',r:'cart',p:213,t:'low',note:'卡带新史低'},{d:'2026-09-14',r:'cart',p:235,t:'sale',note:'卡带行情'}],
+     rating:{community:5.0,fun:5,diff:'适中',hours:'100小时+',verdict:'Switch时代最强之一，看到史低就入'},
+     suitability:['所有玩家','开放世界入门'], tags:['神作','保值','卡带坚挺'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:true,target:235,region:'cart'}, comments:[]},
+    {id:'totk', name:'塞尔达传说 王国之泪', en:'The Legend of Zelda: Tears of the Kingdom', genres:['冒险','开放世界'], zh:true, players:'1人',
+     regions:{cart:{cur:253,low:253,lowDate:'2026-09-14',saleEnd:null,onSale:false}},
+     history:[{d:'2026-09-14',r:'cart',p:253,t:'low',note:'卡带新史低'}],
+     rating:{community:5.0,fun:5,diff:'适中',hours:'120小时+',verdict:'续作天花板，卡带253值得入'},
+     suitability:['所有玩家','旷野之息通关者'], tags:['神作','卡带'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'cart'}, comments:[]},
+    {id:'splatoon3', name:'喷射战士3（斯普拉遁3）', en:'Splatoon 3', genres:['射击','联机'], zh:true, players:'1-8人',
+     regions:{cart:{cur:191,low:191,lowDate:'2026-09-14',saleEnd:null,onSale:false}},
+     history:[{d:'2026-09-14',r:'cart',p:191,t:'low',note:'卡带新史低'}],
+     rating:{community:4.7,fun:5,diff:'易上手',hours:'不限',verdict:'任系联机派对之王，破200即可入'},
+     suitability:['联机玩家','休闲玩家'], tags:['联机','派对','卡带'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:true,target:200,region:'cart'}, comments:[]},
+    {id:'hades', name:'哈迪斯', en:'Hades', genres:['肉鸽','动作'], zh:true, players:'1人',
+     regions:{jp:{cur:34,nativeCur:700,currency:'JPY',low:34,lowDate:'2026-04-28',saleEnd:'2026-04-28',onSale:false}, br:{cur:31,low:31,lowDate:'2026-04-16',saleEnd:'2026-04-29',onSale:false}, us:{cur:42,low:42,lowDate:'2026-04-22',saleEnd:null,onSale:false}},
+     history:[{d:'2026-04-16',r:'br',p:31,t:'low',note:'2.5折史低'},{d:'2026-04-22',r:'us',p:42,t:'low',note:'2.5折'},{d:'2026-04-28',r:'jp',p:34,t:'low',note:'700円 75%OFF'}],
+     rating:{community:4.9,fun:5,diff:'上手易精通难',hours:'60小时+',verdict:'肉鸽教科书，30元档闭眼入'},
+     suitability:['肉鸽爱好者','动作玩家'], tags:['肉鸽','神作','中文'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:true,target:35,region:'br'}, comments:[]},
+    {id:'echoes', name:'塞尔达传说 智慧的再现', en:'The Legend of Zelda: Echoes of Wisdom', genres:['冒险','解谜'], zh:true, players:'1人',
+     regions:{hk:{cur:202,low:202,lowDate:'2026-02-11',saleEnd:'2026-02-24',onSale:false}, jp:{cur:64,low:64,lowDate:'2026-02-11',saleEnd:'2026-02-18',onSale:false}},
+     history:[{d:'2026-02-11',r:'hk',p:202,t:'low',note:'7折史低'},{d:'2026-02-11',r:'jp',p:64,t:'low',note:'7折史低'}],
+     rating:{community:4.4,fun:4,diff:'轻松',hours:'30小时',verdict:'塞尔达新玩法，7折可入'},
+     suitability:['塞尔达粉','解谜爱好者'], tags:['塞尔达','解谜'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'nssports', name:'Nintendo Switch 运动', en:'Nintendo Switch Sports', genres:['体感','运动'], zh:true, players:'1-4人',
+     regions:{hk:{cur:134,low:134,lowDate:'2026-02-11',saleEnd:'2026-02-24',onSale:false}},
+     history:[{d:'2026-02-11',r:'hk',p:134,t:'low',note:'7折史低'}],
+     rating:{community:4.2,fun:4,diff:'零门槛',hours:'不限',verdict:'合家欢体感，7折史低可入'},
+     suitability:['合家欢','体感玩家'], tags:['体感','派对'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'legodc', name:'乐高DC超级反派', en:'LEGO DC Super-Villains', genres:['动作','冒险'], zh:true, players:'1-2人',
+     regions:{hk:{cur:32,low:32,lowDate:'2026-06-14',saleEnd:'2026-07-02',onSale:false}, jp:{cur:25,low:25,lowDate:'2026-06-14',saleEnd:'2026-07-02',onSale:false}},
+     history:[{d:'2026-06-14',r:'hk',p:32,t:'low',note:'1折史低'},{d:'2026-06-14',r:'jp',p:25,t:'low',note:'1折史低'}],
+     rating:{community:4.0,fun:4,diff:'轻松',hours:'20小时',verdict:'1折价格屠夫，DC/乐高粉入'},
+     suitability:['DC粉丝','乐高粉','亲子'], tags:['乐高','超英','白菜价'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'tgyh', name:'谢天谢地你来了', en:'Thank Goodness You\'re Here!', genres:['喜剧','冒险'], zh:true, players:'1人',
+     regions:{hk:{cur:50,low:50,lowDate:'2026-09-08',saleEnd:'2026-10-01',onSale:true}, jp:{cur:47,low:47,lowDate:'2026-09-08',saleEnd:'2026-10-01',onSale:true}},
+     history:[{d:'2026-09-08',r:'hk',p:50,t:'low',note:'5折史低'},{d:'2026-09-08',r:'jp',p:47,t:'low',note:'5折史低'}],
+     rating:{community:4.5,fun:4,diff:'轻松',hours:'4-6小时',verdict:'英式无厘头喜剧，打折入超值'},
+     suitability:['喜剧爱好者','碎片时间'], tags:['喜剧','短流程'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'diablo3', name:'暗黑破坏神 万恶之源珍藏组合', en:'Diablo Prime Evil Collection', genres:['刷宝','动作RPG'], zh:true, players:'1-4人',
+     regions:{hk:{tbd:true}, jp:{tbd:true}},
+     history:[], lowInfo:'2026-09-04 速报为 3.3 折史低，具体价格待核实，登记价格后开始追踪。',
+     rating:{community:4.4,fun:4,diff:'易上手',hours:'100小时+',verdict:'刷宝党福音，3.3折可入'},
+     suitability:['刷宝党','暗黑粉'], tags:['刷宝','联机'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'dbz', name:'七龙珠Z 卡卡洛特+新觉醒篇', en:'Dragon Ball Z: Kakarot + A New Power Awakens', genres:['动作RPG','开放世界'], zh:true, players:'1人',
+     regions:{hk:{cur:63,low:63,lowDate:'2026-08-20',saleEnd:'2026-09-13',onSale:false}},
+     history:[{d:'2026-08-20',r:'hk',p:63,t:'low',note:'5折史低'}],
+     rating:{community:4.3,fun:4,diff:'易上手',hours:'40小时',verdict:'龙珠粉必入，5折很值'},
+     suitability:['龙珠粉丝'], tags:['粉丝向','龙珠'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'bokujou', name:'牧场物语 来吧！风之繁华集市', en:'Story of Seasons: Grand Bazaar', genres:['种田模拟'], zh:true, players:'1人',
+     regions:{hk:{cur:157,low:157,lowDate:'2026-08-25',saleEnd:'2026-09-06',onSale:false}},
+     history:[{d:'2026-08-25',r:'hk',p:157,t:'low',note:'6折新史低'}],
+     rating:{community:4.1,fun:4,diff:'轻松',hours:'50小时+',verdict:'种田党可选，6折新史低'},
+     suitability:['种田党','休闲玩家'], tags:['种田','休闲'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'hk'}, comments:[]},
+    {id:'acnh', name:'集合啦！动物森友会', en:'Animal Crossing: New Horizons', genres:['种田模拟','社交'], zh:true, players:'1-4人',
+     regions:{hk:{cur:329,low:null,lowDate:null,saleEnd:null,onSale:false}},
+     history:[],
+     rating:{community:4.8,fun:5,diff:'零门槛',hours:'不限',verdict:'社交种田天花板，价格坚挺，想玩就入'},
+     suitability:['所有玩家','社交玩家','休闲党'], tags:['常青','保值','社交'],
+     pcNote:'', video:{title:'',url:''}, watch:{on:true,target:299,region:'hk'},
+     comments:[{c:'评论区高频：动森什么时候打折？现在该不该入？',src:'评论区',d:'2026-09-05'}]},
+    {id:'stardew', name:'星露谷物语', en:'Stardew Valley', genres:['种田模拟'], zh:true, players:'1-4人',
+     regions:{jp:{cur:66,nativeCur:1345,currency:'JPY',low:null,lowDate:null,saleEnd:null,onSale:false}},
+     history:[], lowInfo:'日区常价 1345円，打折不频繁，见到 -20% 以上即可入。',
+     rating:{community:4.9,fun:5,diff:'轻松',hours:'100小时+',verdict:'百元内神作，原价买也不亏'},
+     suitability:['种田党','休闲玩家','所有玩家'], tags:['常青','神作','少打折'],
+     pcNote:'', video:{title:'',url:''}, watch:{on:true,target:55,region:'jp'}, comments:[]},
+    {id:'hollowknight', name:'空洞骑士', en:'Hollow Knight', genres:['银河城','动作'], zh:true, players:'1人',
+     regions:{us:{cur:108,nativeCur:15,currency:'USD',low:null,lowDate:null,saleEnd:null,onSale:false}},
+     history:[], lowInfo:'美服常价 $15，史低约 5 折（$7.5 档），蹲到 5 折再入。',
+     rating:{community:4.9,fun:5,diff:'较难',hours:'40-60小时',verdict:'2D银河城巅峰，原价买都值'},
+     suitability:['硬核玩家','银河城爱好者'], tags:['常青','神作','难度高'],
+     pcNote:'', video:{title:'',url:''}, watch:{on:true,target:55,region:'us'},
+     comments:[{c:'评论区高频：空洞骑士现在该不该入？',src:'评论区',d:'2026-09-08'}]},
+    {id:'deadcells', name:'死亡细胞', en:'Dead Cells', genres:['肉鸽','横版动作'], zh:true, players:'1人',
+     regions:{jp:{cur:34,low:34,lowDate:'2026-02-22',saleEnd:null,onSale:false}},
+     history:[{d:'2026-02-22',r:'jp',p:34,t:'low',note:'70%折扣史低'}],
+     rating:{community:4.6,fun:5,diff:'较难',hours:'60小时+',verdict:'爽快肉鸽，7折 off 超值'},
+     suitability:['肉鸽爱好者'], tags:['肉鸽','爽快'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'jp'}, comments:[]},
+    {id:'unravel2', name:'毛线小精灵2', en:'Unravel Two', genres:['双人合作','平台跳跃'], zh:true, players:'1-2人',
+     regions:{nz:{cur:37,low:37,lowDate:'2026-02-22',saleEnd:null,onSale:false}},
+     history:[{d:'2026-02-22',r:'nz',p:37,t:'low',note:'70%折扣史低'}],
+     rating:{community:4.5,fun:4,diff:'适中',hours:'8小时',verdict:'唯美双人合作，70% off 可入'},
+     suitability:['双人党','剧情党'], tags:['双人','唯美'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'nz'}, comments:[]},
+    {id:'sohr4', name:'怒之铁拳4', en:'Streets of Rage 4', genres:['横版动作'], zh:true, players:'1-4人',
+     regions:{jp:{cur:35,low:35,lowDate:'2026-02-22',saleEnd:null,onSale:false}},
+     history:[{d:'2026-02-22',r:'jp',p:35,t:'low',note:'70%折扣史低'}],
+     rating:{community:4.6,fun:4,diff:'适中',hours:'20小时',verdict:'爽快清版格斗，同屏4人'},
+     suitability:['动作玩家','怀旧党'], tags:['清版','联机'], pcNote:'',
+     video:{title:'',url:''}, watch:{on:false,target:0,region:'jp'}, comments:[]}
+  ];
+  games.forEach(g=>{ g.demo = demoFor(g); });
+  return {
+    games: games,
+    ideas: [
+      {text:'动森什么时候打折？值得买吗', tag:'蹲折扣', status:'done', d:'2026-09-01'},
+      {text:'星露谷 NS 版和 PC 版怎么选', tag:'跨平台', status:'todo', d:'2026-09-02'},
+      {text:'空洞骑士现在该不该入', tag:'蹲折扣', status:'todo', d:'2026-09-08'},
+      {text:'换区会被清空余额吗？怎么操作', tag:'换区教程', status:'todo', d:'2026-09-03'},
+      {text:'霍格沃茨之遗推荐玩吗？NS版值不值', tag:'跨平台', status:'todo', d:'2026-08-12'},
+      {text:'求本周史低汇总', tag:'史低速报', status:'done', d:'2026-09-15'},
+      {text:'文明6好玩吗，适合什么人', tag:'好不好玩', status:'todo', d:'2026-09-10'},
+      {text:'哪些游戏 NS 版体验差，建议等 PC/买卡带', tag:'跨平台', status:'todo', d:'2026-09-12'},
+      {text:'巴西区怎么付款？点卡充值安全吗', tag:'换区教程', status:'todo', d:'2026-09-06'}
+    ],
+    meta: {
+      dataDate:'2026-09-20',
+      rates:{JPY:0.048, HKD:0.92, USD:7.15, BRL:1.28, NZD:4.3, CNY:1},
+      note:'种子数据来自公开史低速报（2026 年快照），价格为人民币折算参考，部分待核实。登记新价格即可更新追踪。'
+    }
+  };
+}
+const LS_KEY = 'ns_price_station_v1';
+let DB;
+function loadDB(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){ DB = JSON.parse(raw); if(!DB.games || !DB.meta) throw new Error('bad'); DB.games.forEach(g=>{ if(!g.demo) g.demo=demoFor(g); }); }
+    else{ DB = seed(); saveDB(); }
+  }catch(e){ console.warn('数据损坏，已重置', e); DB = seed(); saveDB(); }
+  fetchRemoteData();
+}
+/* GitHub 数据源：部署后从 data/games.json 拉取最新史低数据；本地/离线静默回退 */
+function fetchRemoteData(force){
+  if(!force && window.__remoteFetched) return; window.__remoteFetched = true;
+  if(!window.fetch || location.protocol==='file:') return;
+  fetch('data/games.json', {cache:'no-store'})
+    .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(j=>mergeRemote(j))
+    .catch(()=>{});
+}
+function mergeRemote(remote){
+  if(!remote || !Array.isArray(remote.games) || !remote.games.length) return;
+  const localIdeas = DB.ideas || [];
+  const localWatch = {};
+  (DB.games||[]).forEach(g=>{ if(g.watch) localWatch[g.id] = g.watch; });
+  const localComments = {};
+  (DB.games||[]).forEach(g=>{ if(g.comments && g.comments.length) localComments[g.id] = g.comments; });
+  remote.games.forEach(rg=>{
+    if(localWatch[rg.id]) rg.watch = localWatch[rg.id];
+    if(localComments[rg.id] && localComments[rg.id].length) rg.comments = localComments[rg.id];
+    if(!rg.demo) rg.demo = demoFor(rg);
+  });
+  const oldIdeas = DB.ideas || [];
+  DB = remote;
+  DB.ideas = oldIdeas.length ? oldIdeas : localIdeas;
+  saveDB();
+  toast('已同步远程史低数据（'+(remote.meta&&remote.meta.dataDate||'最新')+'），本地蹲守/口碑/选题已保留');
+  route();
+}
+function saveDB(){ localStorage.setItem(LS_KEY, JSON.stringify(DB)); }
+function getGame(id){ return DB.games.find(g=>g.id===id); }
+/* 试玩 Demo 数据：画面 + 外部跳转链接（可在编辑弹窗中修改） */
+function demoFor(g){
+  return { img:'assets/'+g.id+'.jpg',
+    url:'https://www.bing.com/search?q='+encodeURIComponent((g.name||g.en||'')+' Switch 官方试玩 Demo'),
+    label:'打开试玩 / Demo 信息' };
+}
+function regionOf(g, key){ return g.regions[key] || null; }
+/* 折扣规律：某区打折记录的平均间隔（天） */
+function saleGap(g, regionKey){
+  const hs = g.history.filter(h=>h.r===regionKey && (h.t==='sale'||h.t==='low')).sort((a,b)=>a.d<b.d?-1:1);
+  if(hs.length<2) return null;
+  let sum=0;
+  for(let i=1;i<hs.length;i++) sum += daysDiff(hs[i].d, hs[i-1].d);
+  return Math.round(sum/(hs.length-1));
+}
+/* 有效现价（人民币口径）：cur 为折算价，或 nativeCur 按汇率折算 */
+function curCNY(g, regionKey){
+  const r = regionOf(g, regionKey);
+  if(!r || r.tbd || r.cur==null) return null;
+  return r.cur;
+}
+/* 蹲折扣状态 */
+function watchState(g){
+  const w=g.watch;
+  if(!w.on) return null;
+  const r = regionOf(g, w.region);
+  const cur = curCNY(g, w.region);
+  if(cur==null) return {hit:false, near:false, cur:null, target:w.target};
+  const hit = cur <= w.target;
+  return {hit, near: !hit && cur <= w.target*1.2, cur, target:w.target};
+}
+function isLowNow(g, key){
+  const r=regionOf(g,key);
+  if(!r||r.tbd||r.cur==null) return false;
+  return r.low!=null && r.cur <= r.low;
+}
+function lastLowRecords(n){
+  const out=[];
+  DB.games.forEach(g=>{
+    g.history.filter(h=>h.t==='low').forEach(h=>{
+      const r=regionOf(g,h.r);
+      if(r && r.cur!=null && h.p!=null) out.push({g, h});
+    });
+  });
+  return out.sort((a,b)=>a.h.d<b.h.d?1:-1).slice(0,n);
+}
+/* ============ 路由 ============ */
+let FILTER = {q:'', genre:'', zh:false, low:false, pc:false, sort:'name'};
+function parseHash(){
+  const h = location.hash.replace(/^#\/?/,'');
+  const parts = h.split('/');
+  return {view: parts[0] || 'dashboard', id: parts[1] || null};
+}
+function navigate(view, id){
+  location.hash = '/' + view + (id ? '/'+id : '');
+}
+function renderNav(){
+  const cur = parseHash().view;
+  const wc = DB.games.filter(g=>g.watch.on).length;
+  const ac = DB.games.filter(g=>{const s=watchState(g); return s&&s.hit;}).length;
+  $('#nav').innerHTML = NAV.map(n=>{
+    const count = n.id==='watchlist' ? wc : (n.id==='dashboard' ? ac : null);
+    return '<div class="nav-item'+(cur===n.id?' active':'')+'" onclick="navigate(\''+n.id+'\')">'
+      + NAV_ICONS[n.id] + '<span>'+n.label+'</span>'
+      + (count!=null && count>0 ? '<span class="count">'+count+'</span>' : '') + '</div>';
+  }).join('');
+}
+function renderTopbar(){
+  const cur = parseHash().view;
+  const titles = {dashboard:'仪表盘', library:'游戏库', detail:'游戏详情', watchlist:'蹲折扣清单', reviews:'好不好玩', studio:'内容工作台', settings:'设置与数据'};
+  const ac = DB.games.filter(g=>{const s=watchState(g); return s&&s.hit;}).length;
+  $('#topbar').innerHTML = '<h2>'+titles[cur]+'</h2>'
+    + '<span class="chip">数据日期 '+esc(DB.meta.dataDate)+'</span>'
+    + (ac>0 ? '<span class="chip green" onclick="navigate(\'watchlist\')" style="cursor:pointer">'+ac+' 个蹲守已到价</span>' : '')
+    + '<button class="btn primary" onclick="addGameModal()">+ 新增游戏</button>';
+}
+function route(){
+  renderNav(); renderTopbar();
+  const {view, id} = parseHash();
+  const v = $('#view');
+  if(view==='library') v.innerHTML = renderLibrary();
+  else if(view==='detail' && id) v.innerHTML = renderDetail(id);
+  else if(view==='watchlist') v.innerHTML = renderWatchlist();
+  else if(view==='reviews') v.innerHTML = renderReviews();
+  else if(view==='studio') v.innerHTML = renderStudio();
+  else if(view==='settings') v.innerHTML = renderSettings();
+  else v.innerHTML = renderDashboard();
+  afterRender(view, id);
+}
+function afterRender(view, id){
+  if(view==='detail') renderDetailChart(id);
+}
+/* ============ 仪表盘 ============ */
+function renderDashboard(){
+  const last7 = new Date(); last7.setDate(last7.getDate()-14);
+  const weekLow = lastLowRecords(999).filter(x=>daysDiff(today(), x.h.d)<=14);
+  const watchOn = DB.games.filter(g=>g.watch.on);
+  const hits = watchOn.filter(g=>{const s=watchState(g); return s&&s.hit;});
+  const onSale = [];
+  DB.games.forEach(g=>{
+    Object.keys(g.regions).forEach(k=>{
+      const r=g.regions[k];
+      if(r && r.onSale && r.cur!=null && r.saleEnd) onSale.push({g,k,r});
+    });
+  });
+  onSale.sort((a,b)=>(a.r.saleEnd<b.r.saleEnd?-1:1));
+  const lowRecs = lastLowRecords(10);
+  let html = '';
+  html += '<div class="alert-box info"><b>数据说明：</b>'+esc(DB.meta.note)+' 登记新价格后自动更新史低与提醒。</div>';
+  if(hits.length){
+    html += hits.map(g=>{
+      const s = watchState(g);
+      return '<div class="alert-box good">你蹲的《'+esc(g.name)+'》'+esc(REGIONS.find(r=>r.key===g.watch.region).label)+' 现价 ¥'+s.cur+' 已达目标价 ¥'+s.target+'，可以入手了。</div>';
+    }).join('');
+  }
+  html += '<div class="stat-grid">'
+    + '<div class="stat-card c"><div class="lbl">追踪游戏</div><div class="num">'+DB.games.length+'</div><div class="sub">覆盖 6 个价格区</div></div>'
+    + '<div class="stat-card g"><div class="lbl">近14天史低</div><div class="num">'+weekLow.length+'</div><div class="sub">已登记的历史最低价</div></div>'
+    + '<div class="stat-card a"><div class="lbl">蹲折扣中</div><div class="num">'+watchOn.length+'</div><div class="sub">'+hits.length+' 个已达目标价</div></div>'
+    + '<div class="stat-card r"><div class="lbl">进行中折扣</div><div class="num">'+onSale.length+'</div><div class="sub">折扣未结束的游戏</div></div>'
+    + '</div>';
+  html += '<div class="section-title"><span class="bar"></span>进行中的折扣</div>';
+  html += onSale.length ? '<div class="card" style="padding:6px 14px">'+onSale.map(o=>{
+    const days = daysDiff(new Date(o.r.saleEnd), today());
+    return '<div class="list-line"><span class="d">截至 '+o.r.saleEnd+(days>=0?'（剩'+days+'天）':'')+'</span><span class="txt"><b>'+esc(o.g.name)+'</b> · '+esc(REGIONS.find(r=>r.key===o.k).label)+' ¥'+o.r.cur+(isLowNow(o.g,o.k)?' <span class="badge low">史低</span>':'')+'</span><span class="tag-s"><span class="tag c">'+esc(o.g.genres[0])+'</span></span></div>';
+  }).join('')+'</div>'
+    : '<div class="card"><div class="empty">当前没有进行中的折扣，登记价格时会自动标记折扣状态。</div></div>';
+  html += '<div class="section-title"><span class="bar"></span>最近史低动态</div>';
+  html += '<div class="card" style="padding:6px 14px">'+(lowRecs.length ? lowRecs.map(x=>{
+    const rmeta = REGIONS.find(r=>r.key===x.h.r);
+    return '<div class="list-line"><span class="d">'+x.h.d+'</span><span class="txt"><b>'+esc(x.g.name)+'</b> · '+esc(rmeta?rmeta.label:x.h.r)+' 史低 ¥'+x.h.p+'</span><span class="tag-s"><span class="tag g">'+esc(x.h.note||'史低')+'</span></span></div>';
+  }).join('') : '<div class="empty">暂无史低记录</div>')+'</div>';
+  html += '<div class="section-title"><span class="bar"></span>快速入口</div>'
+    + '<div class="grid-3">'
+    + '<div class="panel" style="cursor:pointer" onclick="navigate(\'studio\')"><h3><span class="bar"></span>内容工作台</h3><div style="font-size:13px;color:var(--tx2)">一键生成「本周史低速报」「蹲折扣指南」「换区省钱对比」「NS vs PC 避坑」，评论区选题库管理。</div></div>'
+    + '<div class="panel" style="cursor:pointer" onclick="navigate(\'library\')"><h3><span class="bar"></span>游戏库</h3><div style="font-size:13px;color:var(--tx2)">按分类/中文/史低/体验筛选 27+ 款游戏，点进详情看价格趋势和口碑。</div></div>'
+    + '<div class="panel" style="cursor:pointer" onclick="navigate(\'watchlist\')"><h3><span class="bar"></span>蹲折扣清单</h3><div style="font-size:13px;color:var(--tx2)">设置目标价，登记价格后自动提醒「已到价」，追更你的愿望单。</div></div>'
+    + '</div>';
+  return html;
+}
+/* ============ 游戏库 ============ */
+function renderLibrary(){
+  let list = DB.games.slice();
+  const q = FILTER.q.trim().toLowerCase();
+  if(q) list = list.filter(g=> (g.name+g.en+g.genres.join('')+g.tags.join('')).toLowerCase().includes(q));
+  if(FILTER.genre) list = list.filter(g=>g.genres.includes(FILTER.genre));
+  if(FILTER.zh) list = list.filter(g=>g.zh);
+  if(FILTER.low) list = list.filter(g=>Object.keys(g.regions).some(k=>isLowNow(g,k)));
+  if(FILTER.pc) list = list.filter(g=>g.pcNote);
+  if(FILTER.sort==='rating') list.sort((a,b)=>b.rating.community-a.rating.community);
+  else if(FILTER.sort==='low') list.sort((a,b)=>lowOf(b)-lowOf(a));
+  else list.sort((a,b)=>a.name.localeCompare(b.name,'zh'));
+  function lowOf(g){ let m=null; Object.values(g.regions).forEach(r=>{ if(r&&r.cur!=null&&(m==null||r.cur<m)) m=r.cur; }); return m||0; }
+  let html = '<div class="toolbar">'
+    + '<div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="q" placeholder="搜索游戏名 / 标签 / 类型" value="'+esc(FILTER.q)+'" oninput="FILTER.q=this.value;document.getElementById(\'lib-body\').innerHTML=renderLibraryCards()"></div>'
+    + '<select onchange="FILTER.genre=this.value;refreshLib()"><option value="">全部分类</option>'+GENRES.map(g=>'<option'+(FILTER.genre===g?' selected':'')+'>'+g+'</option>').join('')+'</select>'
+    + '<label class="chip" style="cursor:pointer"><input type="checkbox" '+(FILTER.zh?'checked':'')+' onchange="FILTER.zh=this.checked;refreshLib()" style="accent-color:var(--green)"> 支持中文</label>'
+    + '<label class="chip" style="cursor:pointer"><input type="checkbox" '+(FILTER.low?'checked':'')+' onchange="FILTER.low=this.checked;refreshLib()" style="accent-color:var(--green)"> 史低中</label>'
+    + '<label class="chip" style="cursor:pointer"><input type="checkbox" '+(FILTER.pc?'checked':'')+' onchange="FILTER.pc=this.checked;refreshLib()" style="accent-color:var(--red)"> NS体验一般</label>'
+    + '<select onchange="FILTER.sort=this.value;refreshLib()"><option value="name" '+(FILTER.sort==='name'?'selected':'')+'>按名称</option><option value="rating" '+(FILTER.sort==='rating'?'selected':'')+'>按口碑</option><option value="low" '+(FILTER.sort==='low'?'selected':'')+'>按低价</option></select>'
+    + '</div>';
+  html += '<div id="lib-body">'+renderLibraryCards(list)+'</div>';
+  return html;
+}
+function refreshLib(){ $('#lib-body').innerHTML = renderLibraryCards(); }
+function renderLibraryCards(list){
+  if(!list.length) return '<div class="card"><div class="empty"><b>没有匹配的游戏</b>换个关键词或清除筛选试试；也可以直接新增游戏。</div></div>';
+  return '<div class="game-grid">'+list.map(g=>{
+    const lows = Object.keys(g.regions).filter(k=>isLowNow(g,k));
+    const prices = Object.keys(g.regions).slice(0,3).map(k=>{
+      const r=g.regions[k];
+      const cls = isLowNow(g,k)?'low':(r.onSale?'wait':'');
+      let txt = (r.tbd||r.cur==null)?'待补录':'¥'+r.cur;
+      return '<span class="price-chip'+(cls?' '+cls:'')+'">'+esc(REGIONS.find(x=>x.key===k).label)+' '+txt+'</span>';
+    }).join('');
+    const ws = watchState(g);
+    return '<div class="game-card" onclick="navigate(\'detail\',\''+g.id+'\')">'
+      + '<div class="g-cover"><img loading="lazy" src="'+esc((g.demo&&g.demo.img)||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 游戏画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="no-cover">暂无画面</div></div>'
+      + '<div class="g-top"><div style="flex:1"><div class="g-name">'+esc(g.name)+'</div><div class="g-en">'+esc(g.en)+'</div></div>'
+      + (lows.length?'<span class="badge low">史低中</span>':'')+(ws&&ws.hit?'<span class="badge wait">已到价</span>':'')
+      + '</div>'
+      + '<div class="g-tags">'+g.genres.slice(0,3).map(x=>'<span class="tag">'+esc(x)+'</span>').join('')+(g.pcNote?'<span class="tag r">NS体验一般</span>':'')+'</div>'
+      + '<div class="g-prices">'+prices+'</div>'
+      + '<div class="g-foot"><span class="stars">'+stars(g.rating.community)+'</span><span class="verdict">'+esc(g.rating.verdict)+'</span></div>'
+      + '</div>';
+  }).join('')+'</div>';
+}
+/* ============ 详情 ============ */
+function renderDetail(id){
+  const g=getGame(id);
+  if(!g) return '<div class="empty">游戏不存在</div>';
+  const rmeta = k=>REGIONS.find(x=>x.key===k);
+  const lows = Object.keys(g.regions).filter(k=>isLowNow(g,k));
+  let html = '<div style="margin-bottom:10px"><a href="#/library" style="font-size:13px">← 返回游戏库</a></div>';
+  html += '<div class="detail-head">'
+    + '<div><div class="t1">'+esc(g.name)+(g.zh?' <span class="tag c">中文</span>':' <span class="tag">无中文</span>')+'</div>'
+    + '<div class="t2">'+esc(g.en)+' · '+esc(g.players)+' · '+g.genres.map(esc).join(' / ')+'</div>'
+    + '<div style="margin-top:8px">'+g.tags.map(x=>'<span class="tag">'+esc(x)+'</span>').join(' ')+'</div></div>'
+    + '<div class="acts"><button class="btn primary" onclick="checkInModal(\''+g.id+'\')">登记价格</button>'
+    + '<button class="btn" onclick="watchModal(\''+g.id+'\')">'+(g.watch.on?'调整蹲守':'设置蹲守')+'</button>'
+    + '<button class="btn" onclick="editGameModal(\''+g.id+'\')">编辑</button></div></div>';
+  if(g.pcNote) html += '<div class="alert-box bad"><b>NS vs PC 避坑：</b>'+esc(g.pcNote)+'</div>';
+  if(g.lowInfo) html += '<div class="alert-box warn">'+esc(g.lowInfo)+'</div>';
+  if(lows.length) html += '<div class="alert-box good"><b>史低提醒：</b>'+esc(g.name)+' 在 '+lows.map(k=>esc(rmeta(k).label)).join('、')+' 正处于史低价位，蹲折扣清单已同步。</div>';
+  const demo = g.demo || demoFor(g);
+  html += '<div class="panel" style="margin-bottom:12px"><h3><span class="bar"></span>试玩 Demo 画面</h3>'
+    + '<div class="demo-box">'
+    + '<img src="'+esc(demo.img||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 游戏画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';var db=this.nextElementSibling.nextElementSibling;if(db&&db.className===\'demo-bar\')db.style.display=\'none\'">'
+    + '<div class="demo-fallback"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/></svg>暂无画面，可在「编辑」中填写图片路径</div>'
+    + '<div class="demo-bar">'+esc(g.name)+' · 官方实机画面参考（图片来自公开渠道，仅供内容选题展示）</div>'
+    + '</div>'
+    + '<div class="demo-actions">'
+    + '<a class="btn primary" target="_blank" rel="noopener" href="'+esc(demo.url||'#')+'">'+esc(demo.label||'打开试玩 / Demo 信息')+' ↗</a>'
+    + '<button class="btn ghost" onclick="editGameModal(\''+g.id+'\')">编辑画面与外链</button>'
+    + '</div></div>';
+  html += '<div class="grid-2">';
+  html += '<div><div class="panel" style="margin-bottom:12px"><h3><span class="bar"></span>地区价格与折扣规律</h3>'
+    + '<div class="tbl-wrap"><table class="tbl"><colgroup><col style="width:12%"><col style="width:20%"><col style="width:16%"><col style="width:16%"><col style="width:20%"><col style="width:16%"></colgroup>'
+    + '<tr><th>区域</th><th>现价（折算）</th><th>历史最低</th><th>史低日期</th><th>折扣规律</th><th>操作</th></tr>';
+  Object.keys(g.regions).forEach(k=>{
+    const r=g.regions[k];
+    const gap = saleGap(g,k);
+    html += '<tr><td>'+esc(rmeta(k).label)+(r.onSale?' <span class="badge onsale">促销中</span>':'')+(isLowNow(g,k)?' <span class="badge low">史低</span>':'')+'</td>'
+      + '<td>'+fmtPrice(r)+'</td>'
+      + '<td>'+(r.low!=null?'¥'+r.low:'—')+'</td><td>'+(r.lowDate||'—')+'</td>'
+      + '<td>'+(gap?('约每 '+gap+' 天一次促销'):(r.lowDate?'样本不足':'尚无记录'))+'</td>'
+      + '<td><button class="btn ghost" style="padding:4px 10px" onclick="checkInModal(\''+g.id+'\',\''+k+'\')">登记</button></td></tr>';
+  });
+  html += '</table></div></div>';
+  html += '<div class="panel"><h3><span class="bar"></span>价格趋势（¥）</h3><div class="chart-box" id="chart-price"></div></div></div>';
+  html += '<div>';
+  html += '<div class="panel" style="margin-bottom:12px"><h3><span class="bar"></span>好不好玩</h3>'
+    + '<div class="kv" style="margin-bottom:12px">'
+    + '<div class="kv-item"><div class="k">社区口碑</div><div class="v">'+g.rating.community+' / 5</div></div>'
+    + '<div class="kv-item"><div class="k">上手难度</div><div class="v">'+esc(g.rating.diff)+'</div></div>'
+    + '<div class="kv-item"><div class="k">参考时长</div><div class="v">'+esc(g.rating.hours)+'</div></div>'
+    + '<div class="kv-item"><div class="k">适合人群</div><div class="v" style="font-size:12px">'+g.suitability.map(esc).join('、')+'</div></div>'
+    + '</div>'
+    + '<div class="alert-box good" style="margin-bottom:0"><b>一句话结论：</b>'+esc(g.rating.verdict)+'</div></div>';
+  html += '<div class="panel" style="margin-bottom:12px"><h3><span class="bar"></span>视频素材</h3>'
+    + (g.video && g.video.url ? '<div class="list-line"><span class="txt"><a href="'+esc(g.video.url)+'" target="_blank" rel="noopener">'+esc(g.video.title||g.video.url)+'</a></span><span class="tag-s"><span class="tag c">已关联</span></span></div>'
+      : '<div class="empty" style="padding:12px">还没有关联视频，做测评/速报后在此记录链接。</div>')
+    + '<div style="margin-top:8px"><button class="btn ghost" style="width:100%" onclick="editGameModal(\''+g.id+'\',true)">关联/更新视频</button></div></div>';
+  html += '<div class="panel"><h3><span class="bar"></span>评论区口碑</h3>'
+    + (g.comments.length ? g.comments.map(c=>'<div class="list-line"><span class="d">'+esc(c.d)+'</span><span class="txt">'+esc(c.c)+'</span><span class="tag-s"><span class="tag a">'+esc(c.src)+'</span></span></div>').join('')
+      : '<div class="empty" style="padding:12px">暂无口碑记录，评论区高频问题可在此沉淀。</div>')
+    + '</div></div>';
+  html += '</div>';
+  return html;
+}
+function renderDetailChart(id){
+  const el = $('#chart-price');
+  if(!el) return;
+  if(window.chartInst){ window.chartInst.dispose(); window.chartInst=null; }
+  if(typeof echarts==='undefined'){ el.innerHTML='<div class="empty">图表库加载失败，请联网后刷新（ECharts CDN）</div>'; return; }
+  const g=getGame(id);
+  const series=[];
+  REGIONS.forEach(rm=>{
+    const pts=g.history.filter(h=>h.r===rm.key && h.p!=null).sort((a,b)=>a.d<b.d?-1:1);
+    if(!pts.length) return;
+    series.push({name:rm.label, type:'line', connectNulls:true, smooth:true, symbolSize:7,
+      data:pts.map(h=>[h.d,h.p]),
+      markPoint:{data:[{type:'min', name:'史低'}], label:{color:'#F5A623', fontSize:11}}});
+  });
+  if(!series.length){ el.innerHTML='<div class="empty">暂无价格记录，登记价格后生成趋势图</div>'; return; }
+  const chart=echarts.init(el);
+  chart.setOption({backgroundColor:'transparent', tooltip:{trigger:'axis', backgroundColor:'#182338', borderColor:'#2E3D5E', textStyle:{color:'#E6EDF7'}},
+    legend:{textStyle:{color:'#8A9BB8'}, top:0},
+    grid:{left:46, right:16, top:34, bottom:30},
+    xAxis:{type:'time', axisLine:{lineStyle:{color:'#2E3D5E'}}, axisLabel:{color:'#8A9BB8'}},
+    yAxis:{type:'value', name:'¥', nameTextStyle:{color:'#8A9BB8'}, axisLabel:{color:'#8A9BB8'}, splitLine:{lineStyle:{color:'rgba(46,61,94,.5)'}}},
+    series});
+  window.chartInst=chart;
+}
+/* ============ 蹲折扣清单 ============ */
+function renderWatchlist(){
+  const list = DB.games.filter(g=>g.watch.on);
+  const hits = list.filter(g=>{const s=watchState(g); return s&&s.hit;});
+  const near = list.filter(g=>{const s=watchState(g); return s&&!s.hit&&s.near;});
+  let html = '<div class="alert-box info">设置目标价后，登记价格时若现价 ≤ 目标价会自动弹出提醒，并把已到价游戏置顶。目标价、汇率均为人民币口径。</div>';
+  if(hits.length) html += '<div class="alert-box good"><b>可以入手：</b>'+hits.map(g=>'《'+esc(g.name)+'》').join('、')+' 已到目标价。</div>';
+  html += '<div class="section-title"><span class="bar"></span>蹲守清单（'+list.length+'）</div>';
+  html += list.length ? '<div class="tbl-wrap"><table class="tbl"><colgroup><col style="width:26%"><col style="width:10%"><col style="width:14%"><col style="width:12%"><col style="width:14%"><col style="width:12%"><col style="width:12%"></colgroup>'
+    + '<tr><th>游戏</th><th>目标区</th><th>现价</th><th>目标价</th><th>历史最低</th><th>状态</th><th>操作</th></tr>'
+    + list.map(g=>{
+      const s=watchState(g); const r=regionOf(g,g.watch.region);
+      const st = s.hit ? '<span class="badge wait">已到价</span>' : (s.near ? '<span class="badge onsale">接近</span>' : (s.cur==null ? '<span class="badge">待补录</span>' : '<span class="badge">等待</span>'));
+      return '<tr style="'+(s.hit?'background:rgba(245,166,35,.05)':'')+'"><td><b>'+esc(g.name)+'</b></td><td>'+esc(REGIONS.find(x=>x.key===g.watch.region).label)+'</td>'
+        + '<td>'+(s.cur!=null?'¥'+s.cur:'—')+'</td><td>¥'+s.target+'</td>'
+        + '<td>'+(r&&r.low!=null?'¥'+r.low:'—')+'</td><td>'+st+'</td>'
+        + '<td><button class="btn ghost" style="padding:4px 10px" onclick="checkInModal(\''+g.id+'\',\''+g.watch.region+'\')">登记</button> <button class="btn ghost danger" style="padding:4px 10px" onclick="toggleWatch(\''+g.id+'\')">取消</button></td></tr>';
+    }).join('')+'</table></div>'
+    : '<div class="card"><div class="empty"><b>还没有蹲守的游戏</b>去游戏库点「设置蹲守」，或新增游戏后设置目标价。</div></div>';
+  html += '<div class="section-title"><span class="bar"></span>使用建议</div><div class="panel"><div style="font-size:13px;color:var(--tx2);line-height:2">'
+    + '1. 先登记游戏当前价格（数据越全，折扣规律越准）。<br>'
+    + '2. 用「蹲折扣指南」生成文案，回答评论区「XX 现在该不该入」的高频问题。<br>'
+    + '3. 固定节奏（如每周五）更新数据，沉淀为「本周史低速报」系列。</div></div>';
+  return html;
+}
+/* ============ 好不好玩 ============ */
+function renderReviews(){
+  const pcList = DB.games.filter(g=>g.pcNote).sort((a,b)=>b.rating.community-a.rating.community);
+  const rest = DB.games.filter(g=>!g.pcNote).sort((a,b)=>b.rating.community-a.rating.community);
+  let html = '<div class="alert-box info">口碑分来自社区综合反馈（参考值，非权威评分）。「NS体验一般」专列帮你做跨平台购买决策，评论区真实反馈是最好的素材。</div>';
+  html += '<div class="section-title"><span class="bar"></span>NS版体验一般 · 建议等 PC / 买卡带</div>';
+  html += '<div class="card" style="padding:8px 14px">'+(pcList.length?pcList.map(g=>
+    '<div class="list-line"><span class="stars">'+stars(g.rating.community)+'</span><span class="txt"><b>'+esc(g.name)+'</b> —— '+esc(g.pcNote)+'</span><span class="tag-s"><span class="tag r">避坑</span></span></div>'
+  ).join(''):'<div class="empty">暂无标记</div>')+'</div>';
+  html += '<div class="section-title"><span class="bar"></span>全库口碑榜</div>';
+  html += '<div class="game-grid">'+rest.map(g=>{
+    const lows = Object.keys(g.regions).filter(k=>isLowNow(g,k));
+    return '<div class="game-card" onclick="navigate(\'detail\',\''+g.id+'\')">'
+      + '<div class="g-cover"><img loading="lazy" src="'+esc((g.demo&&g.demo.img)||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 游戏画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="no-cover">暂无画面</div></div>'
+      + '<div class="g-top"><div style="flex:1"><div class="g-name">'+esc(g.name)+'</div><div class="g-en">'+esc(g.rating.verdict)+'</div></div>'
+      + (lows.length?'<span class="badge low">史低中</span>':'')+'</div>'
+      + '<div class="g-tags">'+g.suitability.slice(0,3).map(x=>'<span class="tag a">'+esc(x)+'</span>').join('')+'</div>'
+      + '<div class="g-foot"><span class="stars">'+stars(g.rating.community)+'</span><span class="verdict">'+esc(g.rating.hours)+'</span></div>'
+      + '</div>';
+  }).join('')+'</div>';
+  return html;
+}
+/* ============ 内容工作台 ============ */
+let STUDIO = {game:null, tag:'全部'};
+function weekLowReport(){
+  const recs = lastLowRecords(999).filter(x=>daysDiff(today(), x.h.d)<=14);
+  const head = '【NS史低速报 · '+DB.meta.dataDate+' 更新】';
+  if(!recs.length) return head+'\n（近14天无新增史低记录，先登记价格再生成吧）';
+  return head + '\n\n' + recs.map(x=>{
+    const rm = REGIONS.find(r=>r.key===x.h.r);
+    return '《'+x.g.name+'》'+rm.label+' ¥'+x.h.p+'（'+x.h.note+'）—— '+x.g.rating.verdict;
+  }).join('\n') + '\n\n#Switch #Switch游戏 #史低 #游戏打折';
+}
+function watchGuide(){
+  const list = DB.games.filter(g=>g.watch.on);
+  if(!list.length) return '还没有蹲守的游戏。先去游戏库给心仪的游戏设置目标价吧。';
+  return list.map(g=>{
+    const s = watchState(g);
+    const rm = REGIONS.find(r=>r.key===g.watch.region);
+    const r = regionOf(g, g.watch.region);
+    const gap = saleGap(g, g.watch.region);
+    const lowTxt = r && r.low!=null ? '史低 ¥'+r.low+'（'+r.lowDate+'）' : '暂无史低记录';
+    const pattern = gap ? '平均约 '+gap+' 天一次促销' : '促销样本不足';
+    const action = s.cur==null ? '待补录价格' : (s.hit ? '已到目标价，可以入手' : '建议蹲到 ¥'+s.target+' 再出手');
+    return '《'+g.name+'》：'+rm.label+' 现价 ¥'+(s.cur!=null?s.cur:'—')+'，'+lowTxt+'，'+pattern+'。'+(s.cur!=null?'你的目标价 ¥'+s.target+' → '+action+'。':'')+g.rating.verdict;
+  }).join('\n\n');
+}
+function regionCompareText(g){
+  if(!g) return '请先在上方选择一款游戏。';
+  const rows = Object.keys(g.regions).map(k=>{
+    const r = g.regions[k]; const rm = REGIONS.find(x=>x.key===k);
+    let cur = (r.tbd||r.cur==null)?'待补录':'¥'+r.cur+(r.nativeCur!=null&&r.currency!=='CNY'?'（'+r.nativeCur+r.currency+'）':'');
+    let low = r.low!=null?'¥'+r.low+(r.lowDate?'（'+r.lowDate+'）':''):'—';
+    return '| '+rm.label+' | '+cur+' | '+low+' | '+(g.zh?'是':'否')+' |';
+  }).join('\n');
+  return '《'+g.name+'》换区价格对比\n\n| 区域 | 现价 | 历史最低 | 中文 |\n|---|---|---|---|\n'+rows+'\n\n换区提示：换区前余额会清零，建议先花完或用完余额再切区；点卡选靠谱渠道，日区/港区点卡最稳，巴西区注意汇率波动与锁区风险。';
+}
+function pcAvoidanceText(){
+  const list = DB.games.filter(g=>g.pcNote);
+  if(!list.length) return '还没有标记 NS 体验一般的游戏。在游戏编辑里填写「NS vs PC」避坑说明后，这里会自动汇总。';
+  return '【哪些游戏 NS 版体验差，建议等 PC / 买卡带】\n\n'+list.map(g=>{
+    return '《'+g.name+'》—— '+g.pcNote;
+  }).join('\n\n')+'\n\n（素材来自评论区真实反馈，欢迎补充）';
+}
+function renderStudio(){
+  const gsel = STUDIO.game?getGame(STUDIO.game):null;
+  const opts = DB.games.map(g=>'<option value="'+g.id+'"'+(gsel&&gsel.id===g.id?' selected':'')+'>'+esc(g.name)+'</option>').join('');
+  let html = '<div class="alert-box info">把游戏库数据一键变成内容：周报、蹲折扣指南、换区对比、避坑清单，全部可复制直接发。评论区选题库就是你的内容雷达。</div>';
+  html += '<div class="gen-card"><div class="g-head"><h3>本周史低速报</h3><button class="btn" onclick="copyText(weekLowReport())">复制文案</button></div><div class="gen-out">'+esc(weekLowReport())+'</div></div>';
+  html += '<div class="gen-card"><div class="g-head"><h3>蹲折扣指南（回答「现在该不该入」）</h3><button class="btn" onclick="copyText(watchGuide())">复制文案</button></div><div class="gen-out">'+esc(watchGuide())+'</div></div>';
+  html += '<div class="gen-card"><div class="g-head"><h3>换区省钱对比</h3><select onchange="STUDIO.game=this.value;route()"><option value="">选择游戏</option>'+opts+'</select><button class="btn" style="margin-left:auto" onclick="copyText(regionCompareText(getGame(STUDIO.game)))">复制文案</button></div>'
+    + (gsel?'<div class="gen-out">'+esc(regionCompareText(gsel))+'</div>':'<div class="empty">选择一款游戏，生成它的换区价格对比表。</div>')+'</div>';
+  html += '<div class="gen-card"><div class="g-head"><h3>NS vs PC 避坑素材</h3><button class="btn" onclick="copyText(pcAvoidanceText())">复制文案</button></div><div class="gen-out">'+esc(pcAvoidanceText())+'</div></div>';
+  html += '<div class="section-title"><span class="bar"></span>评论区选题库（你的选题雷达）</div>';
+  html += '<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">'
+    + '<input type="text" id="idea-text" placeholder="把评论区高频问题记进来，例如：XX 现在值不值得买" style="flex:1;min-width:220px">'
+    + '<select id="idea-tag"><option>蹲折扣</option><option>跨平台</option><option>换区教程</option><option>史低速报</option><option>好不好玩</option></select>'
+    + '<button class="btn primary" onclick="addIdea()">收录选题</button></div>';
+  const tags = ['全部','蹲折扣','跨平台','换区教程','史低速报','好不好玩'];
+  html += '<div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">'+tags.map(t=>'<button class="btn'+(STUDIO.tag===t?' primary':' ghost')+'" style="padding:5px 12px" onclick="STUDIO.tag=\''+t+'\';route()">'+t+'</button>').join('')+'</div>';
+  const list = STUDIO.tag==='全部' ? DB.ideas : DB.ideas.filter(i=>i.tag===STUDIO.tag);
+  html += list.length ? list.map(i=>{
+    const realIdx = DB.ideas.indexOf(i);
+    return '<div class="idea-item'+(i.status==='done'?' done':'')+'">'
+      + '<span class="tag '+(i.status==='done'?'g':'a')+'">'+(i.status==='done'?'已做':'待做')+'</span>'
+      + '<span class="txt">'+esc(i.text)+'</span>'
+      + '<span class="meta">'+esc(i.tag)+' · '+esc(i.d)+'</span>'
+      + '<button class="btn ghost" style="padding:4px 10px" onclick="toggleIdea('+realIdx+')">'+(i.status==='done'?'重开':'完成')+'</button>'
+      + '<button class="btn ghost danger" style="padding:4px 10px" onclick="delIdea('+realIdx+')">删除</button>'
+      + '</div>';
+  }).join('') : '<div class="card"><div class="empty">选题库为空，把评论区高频问题收录进来。</div></div>';
+  return html;
+}
+function addIdea(){
+  const t=$('#idea-text').value.trim();
+  if(!t){ toast('请输入选题内容','err'); return; }
+  DB.ideas.push({text:t, tag:$('#idea-tag').value, status:'todo', d:today()});
+  saveDB(); toast('已收录选题'); route();
+}
+function toggleIdea(i){ DB.ideas[i].status = DB.ideas[i].status==='done'?'todo':'done'; saveDB(); route(); }
+function delIdea(i){ DB.ideas.splice(i,1); saveDB(); route(); }
+/* ============ 设置 ============ */
+function renderSettings(){
+  const r = DB.meta.rates;
+  let html = '<div class="grid-2"><div class="panel"><h3><span class="bar"></span>汇率与数据设置</h3>'
+    + '<div class="form-inline">'+['JPY','HKD','USD','BRL','NZD'].map(c=>'<div class="form-row"><label>1 '+c+' ≈ ¥</label><input type="number" id="rate-'+c+'" step="0.001" min="0" value="'+r[c]+'"></div>').join('')+'</div>'
+    + '<div class="form-row"><label>数据日期</label><input type="date" id="set-date" value="'+esc(DB.meta.dataDate)+'"></div>'
+    + '<div class="form-row"><label>数据说明</label><textarea id="set-note" rows="3">'+esc(DB.meta.note)+'</textarea></div>'
+    + '<div class="acts" style="justify-content:flex-start"><button class="btn primary" onclick="saveSettings()">保存设置</button></div>'
+    + '<div style="margin-top:16px;border-top:1px solid var(--line);padding-top:14px"><b style="font-size:13px">数据同步（GitHub 数据源）</b>'
+    + '<div style="font-size:12px;color:var(--tx2);margin:8px 0;line-height:1.8">部署到 GitHub Pages 后，页面会自动从 <code style="color:var(--green)">data/games.json</code> 拉取最新史低数据并缓存到本机；<br>本地蹲守、评论区口碑与选题会保留合并。更新数据 = 在 GitHub 仓库里改 games.json 再提交。</div>'
+    + '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="fetchRemoteData(true)">立即同步远程数据</button>'
+    + '<button class="btn ghost" onclick="exportData()">导出本地数据 JSON</button></div></div></div>'
+    + '<div><div class="panel" style="margin-bottom:12px"><h3><span class="bar"></span>浏览器通知</h3>'
+    + '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px">登记价格触发蹲守提醒时，可在本地浏览器弹出系统通知（仅本机生效）。</div>'
+    + '<button class="btn" onclick="askNotify()">开启通知权限</button> <button class="btn" onclick="testNotify()">测试通知</button></div>'
+    + '<div class="panel"><h3><span class="bar"></span>数据备份</h3>'
+    + '<div style="font-size:13px;color:var(--tx2);margin-bottom:10px">数据保存在本机浏览器 localStorage，换设备/清缓存会丢，建议定期导出。</div>'
+    + '<div style="display:flex;gap:8px;flex-wrap:wrap">'
+    + '<button class="btn" onclick="exportData()">导出 JSON</button>'
+    + '<label class="btn" style="cursor:pointer">导入 JSON<input type="file" accept=".json" style="display:none" onchange="importData(this)"></label>'
+    + '<button class="btn danger" onclick="resetData()">恢复示例数据</button>'
+    + '<button class="btn danger" onclick="clearData()">清空全部数据</button>'
+    + '</div></div></div></div>';
+  return html;
+}
+function saveSettings(){
+  ['JPY','HKD','USD','BRL','NZD'].forEach(c=>{ const v=parseFloat($('#rate-'+c).value); if(v>0) DB.meta.rates[c]=v; });
+  DB.meta.dataDate = $('#set-date').value || DB.meta.dataDate;
+  DB.meta.note = $('#set-note').value.trim();
+  saveDB(); toast('设置已保存'); route();
+}
+function askNotify(){
+  if(!('Notification' in window)){ toast('当前浏览器不支持通知','err'); return; }
+  Notification.requestPermission().then(p=>toast(p==='granted'?'通知权限已开启':'通知权限未开启', p==='granted'?'':'warn'));
+}
+function testNotify(){
+  if(!('Notification' in window)){ toast('当前浏览器不支持通知','err'); return; }
+  if(Notification.permission!=='granted'){ toast('请先开启通知权限','warn'); return; }
+  new Notification('NS史低情报站', {body:'通知已就绪：登记价格到达目标价时会在这里提醒你。'});
+}
+function exportData(){
+  const blob=new Blob([JSON.stringify(DB,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ns-price-data-'+DB.meta.dataDate+'.json'; a.click();
+  toast('已导出数据文件');
+}
+function importData(input){
+  const f=input.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const d=JSON.parse(rd.result);
+      if(!d.games||!d.meta) throw new Error('bad');
+      DB=d; saveDB(); toast('导入成功'); route();
+    }catch(e){ toast('导入失败：文件格式不正确','err'); }
+  };
+  rd.readAsText(f);
+}
+function resetData(){
+  if(!confirm('恢复示例数据将覆盖当前全部修改，确定？')) return;
+  DB=seed(); saveDB(); toast('已恢复示例数据'); route();
+}
+function clearData(){
+  if(!confirm('清空将删除全部游戏与记录，确定？')) return;
+  DB=seed(); DB.games=[]; DB.ideas=[]; saveDB(); toast('已清空'); route();
+}
+/* ============ 登记价格 ============ */
+function checkInModal(id, preset){
+  const g=getGame(id);
+  const keys = Object.keys(g.regions).length ? Object.keys(g.regions) : REGIONS.map(r=>r.key);
+  const opts = keys.map(k=>'<option value="'+k+'"'+(preset===k?' selected':'')+'>'+esc(REGIONS.find(x=>x.key===k).label)+'</option>').join('');
+  openModal('<h3>登记《'+esc(g.name)+'》价格</h3>'
+    + '<input type="hidden" id="ci-id" value="'+g.id+'">'
+    + '<div class="form-row"><label>价格区域</label><select id="ci-region">'+opts+'</select></div>'
+    + '<div class="form-row"><label>现价（人民币折算）</label><input type="number" id="ci-cny" min="0" step="0.1" placeholder="例如 40"><div class="hint">直接填折算后的人民币价格；也可勾选下方用原币价录入。</div></div>'
+    + '<div class="form-row"><label class="chip" style="cursor:pointer"><input type="checkbox" id="ci-native" onchange="document.getElementById(\'ci-native-box\').style.display=this.checked?\'flex\':\'none\'" style="accent-color:var(--green)"> 用原币价录入</label>'
+    + '<div class="form-inline" id="ci-native-box" style="display:none">'
+    + '<div class="form-row"><label>原币价</label><input type="number" id="ci-native-v" min="0" step="1"></div>'
+    + '<div class="form-row"><label>币种</label><select id="ci-currency">'+['JPY','HKD','USD','BRL','NZD'].map(c=>'<option value="'+c+'">'+c+'（1 '+c+'≈¥'+DB.meta.rates[c]+'）</option>').join('')+'</select></div></div></div>'
+    + '<div class="form-row"><label>折扣截止日期（选填，填了会标记为促销中）</label><input type="date" id="ci-end"></div>'
+    + '<div class="form-row"><label>备注</label><input type="text" id="ci-note" placeholder="例如：2折史低 / 例行促销"></div>'
+    + '<div class="acts"><button class="btn" onclick="closeModal()">取消</button><button class="btn primary" onclick="checkInSubmit()">保存</button></div>');
+}
+function checkInSubmit(){
+  const g=getGame($('#ci-id').value);
+  const k=$('#ci-region').value;
+  const r=g.regions[k] || (g.regions[k]={});
+  let cur;
+  if($('#ci-native').checked){
+    const nv=parseFloat($('#ci-native-v').value);
+    const cv=$('#ci-currency').value;
+    if(!(nv>0)){ toast('请输入有效的原币价','err'); return; }
+    cur=Math.round(nv*DB.meta.rates[cv]*10)/10;
+    r.nativeCur=nv; r.currency=cv;
+  }else{
+    cur=parseFloat($('#ci-cny').value);
+    if(!(cur>0)){ toast('请输入有效的价格','err'); return; }
+    r.nativeCur=null; r.currency=null;
+  }
+  const end=$('#ci-end').value||null;
+  const note=$('#ci-note').value.trim()||(end?('登记 ¥'+cur):'登记 ¥'+cur);
+  const isLow = r.low==null || cur < r.low;
+  r.cur=cur; r.tbd=false; r.onSale=!!end; r.saleEnd=end;
+  if(isLow){ r.low=cur; r.lowDate=today(); }
+  g.history.push({d:today(), r:k, p:cur, t:isLow?'low':'sale', note});
+  saveDB(); closeModal();
+  const s=watchState(g);
+  const rl = REGIONS.find(x=>x.key===k).label;
+  if(s&&s.hit) toast('《'+g.name+'》'+rl+' ¥'+cur+' 已达目标价 ¥'+s.target+'，可以入手！','warn');
+  else if(isLow) toast('新史低：《'+g.name+'》'+rl+' ¥'+cur);
+  else toast('已登记《'+g.name+'》'+rl+' ¥'+cur);
+  route();
+}
+/* ============ 蹲守 ============ */
+function watchModal(id){
+  const g=getGame(id);
+  const keys = Object.keys(g.regions).length ? Object.keys(g.regions) : REGIONS.map(r=>r.key);
+  const opts = keys.map(k=>'<option value="'+k+'"'+(g.watch.region===k?' selected':'')+'>'+esc(REGIONS.find(x=>x.key===k).label)+'</option>').join('');
+  openModal('<h3>蹲守《'+esc(g.name)+'》</h3>'
+    + '<input type="hidden" id="w-id" value="'+g.id+'">'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>目标价（人民币）</label><input type="number" id="w-target" min="0" step="1" value="'+(g.watch.target||'')+'" placeholder="例如 40"></div>'
+    + '<div class="form-row"><label>蹲守区域</label><select id="w-region">'+opts+'</select></div></div>'
+    + '<div class="alert-box info">登记价格时若现价 ≤ 目标价，会自动提醒。</div>'
+    + '<div class="acts"><button class="btn" onclick="closeModal()">取消</button>'
+    + (g.watch.on?'<button class="btn danger" onclick="toggleWatch(\''+g.id+'\');closeModal()">取消蹲守</button>':'')
+    + '<button class="btn primary" onclick="watchSubmit()">保存蹲守</button></div>');
+}
+function watchSubmit(){
+  const g=getGame($('#w-id').value);
+  const t=parseFloat($('#w-target').value);
+  if(!(t>0)){ toast('请输入有效的目标价','err'); return; }
+  g.watch={on:true, target:t, region:$('#w-region').value};
+  saveDB(); closeModal();
+  const s=watchState(g);
+  if(s&&s.hit) toast('《'+g.name+'》现价已达目标价，可以入手了！','warn');
+  else toast('已开始蹲守《'+g.name+'》');
+  route();
+}
+function toggleWatch(id){
+  const g=getGame(id); g.watch.on=!g.watch.on;
+  saveDB(); toast(g.watch.on?'已开始蹲守《'+g.name+'》':'已取消蹲守《'+g.name+'》'); route();
+}
+/* ============ 编辑 / 新增游戏 ============ */
+function editGameModal(id){
+  const g = id?getGame(id):null;
+  const v = (n,d)=> g && g[n]!=null ? esc(g[n]) : d;
+  openModal('<h3>'+(g?'编辑《'+esc(g.name)+'》':'新增游戏')+'</h3>'
+    + '<input type="hidden" id="eg-id" value="'+(id||'')+'">'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>中文名 *</label><input type="text" id="eg-name" value="'+v('name','')+'" placeholder="例如：哈迪斯"></div>'
+    + '<div class="form-row"><label>英文名</label><input type="text" id="eg-en" value="'+v('en','')+'"></div></div>'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>分类（逗号分隔）</label><input type="text" id="eg-genres" value="'+(g?esc(g.genres.join(',')):'')+'" placeholder="肉鸽,动作"></div>'
+    + '<div class="form-row"><label>人数</label><input type="text" id="eg-players" value="'+v('players','1人')+'"></div></div>'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>口碑（1-5）</label><input type="number" id="eg-community" min="0" max="5" step="0.1" value="'+(g?g.rating.community:'')+'"></div>'
+    + '<div class="form-row"><label>难度</label><input type="text" id="eg-diff" value="'+(g?esc(g.rating.diff):'适中')+'"></div>'
+    + '<div class="form-row"><label>时长</label><input type="text" id="eg-hours" value="'+(g?esc(g.rating.hours):'')+'"></div></div>'
+    + '<div class="form-row"><label>一句话结论</label><input type="text" id="eg-verdict" value="'+(g?esc(g.rating.verdict):'')+'" placeholder="例如：肉鸽教科书，闭眼入"></div>'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>适合人群（逗号分隔）</label><input type="text" id="eg-suit" value="'+(g?esc(g.suitability.join(',')):'')+'"></div>'
+    + '<div class="form-row"><label>标签（逗号分隔）</label><input type="text" id="eg-tags" value="'+(g?esc(g.tags.join(',')):'')+'"></div></div>'
+    + '<div class="form-row"><label>NS vs PC 避坑说明（填了会标「NS体验一般」）</label><textarea id="eg-pc" rows="2" placeholder="例如：NS版画质缩水明显，建议PC">'+(g?esc(g.pcNote):'')+'</textarea></div>'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>视频标题</label><input type="text" id="eg-vtitle" value="'+(g&&g.video?esc(g.video.title):'')+'"></div>'
+    + '<div class="form-row"><label>视频链接</label><input type="text" id="eg-vurl" value="'+(g&&g.video?esc(g.video.url):'')+'"></div></div>'
+    + '<div class="form-inline">'
+    + '<div class="form-row"><label>试玩画面（图片路径）</label><input type="text" id="eg-dimg" value="'+(g&&g.demo?esc(g.demo.img):'')+'" placeholder="assets/xxx.jpg"><div class="hint">留空则默认 assets/游戏id.jpg</div></div>'
+    + '<div class="form-row"><label>外部试玩 / Demo 链接</label><input type="text" id="eg-durl" value="'+(g&&g.demo?esc(g.demo.url):'')+'" placeholder="https://"></div></div>'
+    + '<div class="form-row"><label>外链按钮文字</label><input type="text" id="eg-dlabel" value="'+(g&&g.demo?esc(g.demo.label):'打开试玩 / Demo 信息')+'"></div>'
+    + '<div class="form-row"><label>评论区口碑（每行一条）</label><textarea id="eg-comments" rows="3">'+(g?g.comments.map(c=>c.c).join('\n'):'')+'</textarea></div>'
+    + '<div class="acts"><button class="btn" onclick="closeModal()">取消</button><button class="btn primary" onclick="gameSubmit()">保存</button></div>');
+}
+function gameSubmit(){
+  const id=$('#eg-id').value;
+  const g = id?getGame(id):{};
+  const name=$('#eg-name').value.trim();
+  if(!name){ toast('请填写中文名','err'); return; }
+  const split = s => s.split(/[,，]/).map(x=>x.trim()).filter(Boolean);
+  const patch = {
+    name:name,
+    en:$('#eg-en').value.trim(),
+    genres:split($('#eg-genres').value),
+    players:$('#eg-players').value.trim()||'1人',
+    rating:{
+      community:Math.min(5,parseFloat($('#eg-community').value)||0),
+      diff:$('#eg-diff').value.trim()||'适中',
+      hours:$('#eg-hours').value.trim(),
+      verdict:$('#eg-verdict').value.trim()
+    },
+    suitability:split($('#eg-suit').value),
+    tags:split($('#eg-tags').value),
+    pcNote:$('#eg-pc').value.trim(),
+    video:{title:$('#eg-vtitle').value.trim(), url:$('#eg-vurl').value.trim()},
+    demo:{img:$('#eg-dimg').value.trim(), url:$('#eg-durl').value.trim(), label:$('#eg-dlabel').value.trim()||'打开试玩 / Demo 信息'},
+    comments:$('#eg-comments').value.split('\n').map(s=>s.trim()).filter(Boolean).map(c=>({c:c, src:'评论区', d:today()}))
+  };
+  if(id){ Object.assign(g, patch); }
+  else{
+    DB.games.push(Object.assign({id:'g'+Date.now().toString(36), zh:true, regions:{}, history:[], lowInfo:'', watch:{on:false,target:0,region:'hk'}}, patch));
+  }
+  saveDB(); closeModal(); toast('已保存《'+name+'》'); route();
+}
+function addGameModal(){ editGameModal(null); }
+/* ============ 初始化 ============ */
+loadDB();
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
