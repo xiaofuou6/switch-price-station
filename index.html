@@ -87,6 +87,15 @@ a{color:var(--cyan);text-decoration:none}
 .game-card .g-cover{height:104px;border-radius:8px;overflow:hidden;background:#0B111D;margin-bottom:2px}
 .game-card .g-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .game-card .g-cover .no-cover{display:none;width:100%;height:100%;align-items:center;justify-content:center;color:var(--tx3);font-size:12px}
+.deal-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-bottom:10px;background:#0B111D;display:block}
+.hot-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;scrollbar-width:thin}
+.hot-card{flex:0 0 150px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--card);cursor:pointer;text-decoration:none;color:inherit;transition:border-color .15s}
+.hot-card:hover{border-color:var(--green)}
+.hot-card .hc-cover{width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;text-align:center;padding:6px;line-height:1.25}
+.hot-card .hc-name{font-size:13px;font-weight:700;margin-bottom:3px}
+.hot-card .hc-note{font-size:11px;color:var(--tx2);line-height:1.4}
+.section-title{font-size:15px;font-weight:800;margin:18px 0 10px;display:flex;align-items:center;gap:8px}
+.section-title .more{font-size:12px;font-weight:400;color:var(--tx2)}
 /* ===== 试玩 Demo ===== */
 .demo-box{position:relative;border-radius:10px;overflow:hidden;background:#0B111D;margin-bottom:12px}
 .demo-box img{display:block;width:100%;max-height:400px;object-fit:cover;object-position:center}
@@ -659,7 +668,8 @@ function renderDeals(){
   html += '<div class="game-grid">' + d.items.map(it=>{
     const off = it.off!=null ? '-'+it.off+'%' : '';
     const lowBadge = it.lowest ? '<span class="badge low">史低</span>' : '';
-    return '<div class="game-card">'
+    const cover = it.image ? '<img class="deal-cover" loading="lazy" src="'+esc(it.image)+'" alt="'+esc(it.name)+'" onerror="this.style.display=\'none\'">' : '';
+    return '<div class="game-card">' + cover
       + '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">'
       + '<div style="flex:1;min-width:0"><div class="g-name" style="font-size:14px">'+esc(it.name)+'</div>'
       + '<div style="font-size:12px;color:var(--tx2);margin-top:3px">'+esc(it.ends||'')+'</div></div>'
@@ -674,6 +684,41 @@ function renderDeals(){
   }).join('') + '</div>';
   return html;
 }
+function hotSection(){
+  // 2026 值得关注的热门 Switch 游戏（静态推荐）
+  const HOT = [
+    {name:'宝可梦传说 Z-A', note:'系列开放世界新作，都市舞台', hue:265},
+    {name:'Metroid Prime 4', note:'银河战士 Prime 系列正统续作', hue:200},
+    {name:'Donkey Kong Bananza', note:'大金刚 3D 平台跳跃新作', hue:25},
+    {name:'马力欧赛车世界', note:'马力欧赛车系列新作', hue:10},
+    {name:'Hollow Knight: Silksong', note:'空洞骑士续作，等了多年', hue:150},
+    {name:'皮克敏 5', note:'任天堂 RTS 新作', hue:90},
+    {name:'塞尔达传说 新作', note:'传说中的下一座开放世界', hue:45},
+    {name:'星露谷物语 1.6', note:'PC 神作最新版已上 Switch', hue:120}
+  ];
+  const cards = HOT.map(h=>{
+    const kw = encodeURIComponent(h.name+' Switch 2026 评测');
+    return '<a class="hot-card" href="https://search.bilibili.com/all?keyword='+kw+'" target="_blank" rel="noopener">'
+      + '<div class="hc-cover" style="background:linear-gradient(135deg,hsl('+h.hue+',60%,45%),hsl('+(h.hue+40)+',60%,30%))">'+esc(h.name)+'</div>'
+      + '<div class="hc-name">'+esc(h.name)+'</div>'
+      + '<div class="hc-note">'+esc(h.note)+'</div></a>';
+  }).join('');
+  return '<div class="section-title">2026 值得关注 <span class="more">点卡片看 B 站评测 ↗</span></div><div class="hot-strip">'+cards+'</div>';
+}
+function weeklyLowSection(){
+  const d = DB.deals;
+  if(!d || !Array.isArray(d.items)) return '';
+  const lows = d.items.filter(x=>x.lowest);
+  if(!lows.length) return '';
+  const cards = lows.map(it=>{
+    const cover = it.image ? '<img src="'+esc(it.image)+'" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:6px" loading="lazy" alt="'+esc(it.name)+'">' : '';
+    return '<a class="hot-card" href="'+esc(it.url)+'" target="_blank" rel="noopener" style="border-color:var(--green)">'
+      + cover
+      + '<div class="hc-name">'+esc(it.name)+'</div>'
+      + '<div class="hc-note"><b style="color:var(--green)">史低 ¥'+it.nowCny+'</b> <span style="color:var(--tx2)">-'+it.off+'%</span></div></a>';
+  }).join('');
+  return '<div class="section-title">本周史低（'+lows.length+' 款）<span class="more">数据来自每日折扣 · 点卡片跳转详情 ↗</span></div><div class="hot-strip">'+cards+'</div>';
+}
 function renderLibrary(){
   let list = DB.games.slice();
   const q = FILTER.q.trim().toLowerCase();
@@ -686,7 +731,7 @@ function renderLibrary(){
   else if(FILTER.sort==='low') list.sort((a,b)=>lowOf(b)-lowOf(a));
   else list.sort((a,b)=>a.name.localeCompare(b.name,'zh'));
   function lowOf(g){ let m=null; Object.values(g.regions).forEach(r=>{ if(r&&r.cur!=null&&(m==null||r.cur<m)) m=r.cur; }); return m||0; }
-  let html = '<div class="toolbar">'
+  let html = weeklyLowSection() + hotSection() + '<div class="toolbar">'
     + '<div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="q" placeholder="搜索游戏名 / 标签 / 类型" value="'+esc(FILTER.q)+'" oninput="FILTER.q=this.value;document.getElementById(\'lib-body\').innerHTML=renderLibraryCards()"></div>'
     + '<select onchange="FILTER.genre=this.value;refreshLib()"><option value="">全部分类</option>'+GENRES.map(g=>'<option'+(FILTER.genre===g?' selected':'')+'>'+g+'</option>').join('')+'</select>'
     + '<label class="chip" style="cursor:pointer"><input type="checkbox" '+(FILTER.zh?'checked':'')+' onchange="FILTER.zh=this.checked;refreshLib()" style="accent-color:var(--green)"> 支持中文</label>'
