@@ -8,38 +8,50 @@
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
 :root{
-  --bg:#0E1524; --panel:#141D2E; --panel2:#182338; --line:#24304A; --line2:#2E3D5E;
-  --tx:#E6EDF7; --tx2:#8A9BB8; --tx3:#5E7194;
-  --green:#2ED47D; --amber:#F5A623; --red:#F0554A; --cyan:#38BDF8;
-  --radius:10px;
+  /* 星露谷物语配色：暖农舍 + 牛皮纸 + 木框 */
+  --bg:#F2E4BC;        /* 牛皮纸米黄 */
+  --panel:#E8D5A3;     /* 木柜色 */
+  --panel2:#DFC791;    /* 选中/悬停木色 */
+  --card:#FAF0D0;      /* 更浅的纸张 */
+  --line:#B89968;      /* 木边框 */
+  --line2:#A07E4F;     /* 深木边框 */
+  --tx:#4A3728;        /* 深棕主文字 */
+  --tx2:#7A6548;       /* 次棕 */
+  --tx3:#9C8465;       /* 浅棕 */
+  --green:#6FA844;     /* 作物草绿 */
+  --amber:#E8A33D;     /* 星之果实金 */
+  --red:#D95545;       /* 草莓红 */
+  --cyan:#4A90B8;      /* 湖水蓝 */
+  --radius:8px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 button,input,select,textarea{font-family:inherit}
 html{scroll-behavior:auto}
-body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;font-size:14px;line-height:1.55}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;font-size:14px;line-height:1.55;
+background-image:radial-gradient(circle at 20% 10%, rgba(255,255,255,.25) 0, transparent 40%), radial-gradient(circle at 80% 90%, rgba(160,126,79,.12) 0, transparent 40%)}
 a{color:var(--cyan);text-decoration:none}
 ::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-thumb{background:#2A3855;border-radius:6px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px;border:2px solid var(--bg)}
 ::-webkit-scrollbar-track{background:transparent}
 .app{display:flex;min-height:100vh}
 /* ===== 侧边栏 ===== */
-.side{width:224px;flex:0 0 224px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
-.brand{display:flex;align-items:center;gap:10px;padding:18px 16px 14px;border-bottom:1px solid var(--line)}
+.side{width:224px;flex:0 0 224px;background:linear-gradient(180deg,#E8D5A3 0%,#D9BE85 100%);border-right:3px solid var(--line2);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;box-shadow:2px 0 8px rgba(74,55,40,.15)}
+.brand{display:flex;align-items:center;gap:10px;padding:18px 16px 14px;border-bottom:3px double var(--line2)}
 .brand .logo{width:34px;height:34px;flex:0 0 34px}
-.brand h1{font-size:16px;font-weight:800;letter-spacing:.5px}
+.brand h1{font-size:16px;font-weight:800;letter-spacing:1px;color:var(--tx)}
 .brand p{font-size:11px;color:var(--tx2);margin-top:2px}
 .nav{flex:1;padding:10px 8px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--tx2);font-weight:600;margin-bottom:2px;border:1px solid transparent}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:6px;cursor:pointer;color:var(--tx2);font-weight:600;margin-bottom:3px;border:2px solid transparent;transition:all .12s}
 .nav-item svg{flex:0 0 18px;width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav-item:hover{background:var(--panel2);color:var(--tx)}
-.nav-item.active{background:var(--panel2);color:var(--green);border-color:var(--line2)}
+.nav-item.active{background:var(--card);color:var(--green);border-color:var(--line2);box-shadow:inset 0 -3px 0 var(--green);font-weight:700}
 .nav-item .count{margin-left:auto;font-size:11px;background:var(--panel2);border:1px solid var(--line2);padding:1px 7px;border-radius:10px;color:var(--tx2)}
 .nav-item.active .count{color:var(--green)}
-.side-foot{padding:14px 16px;border-top:1px solid var(--line);font-size:11px;color:var(--tx3);line-height:1.6}
+.side-foot{padding:14px 16px;border-top:3px double var(--line2);font-size:11px;color:var(--tx3);line-height:1.7}
 .side-foot b{color:var(--tx2)}
 /* ===== 主区 ===== */
 .main{flex:1;min-width:0;display:flex;flex-direction:column}
-.topbar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;flex-wrap:wrap}
+.topbar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--panel);border-bottom:3px double var(--line2);position:sticky;top:0;z-index:20;flex-wrap:wrap}
 .topbar h2{font-size:17px;font-weight:800;margin-right:auto}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);background:var(--panel2);border:1px solid var(--line2);padding:4px 10px;border-radius:20px}
 .chip.green{color:var(--green);border-color:rgba(46,212,125,.4)}
@@ -66,7 +78,7 @@ a{color:var(--cyan);text-decoration:none}
 .stat-card.g .num{color:var(--green)} .stat-card.a .num{color:var(--amber)} .stat-card.r .num{color:var(--red)} .stat-card.c .num{color:var(--cyan)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
 .game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:12px}
-.game-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px;cursor:pointer;transition:.15s;position:relative;display:flex;flex-direction:column;gap:9px}
+.game-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:12px;transition:transform .12s,border-color .12s,box-shadow .12s;cursor:pointer;box-shadow:0 2px 0 var(--line)}
 .game-card:hover{border-color:var(--line2);transform:translateY(-2px)}
 .game-card .g-top{display:flex;align-items:flex-start;gap:8px}
 .game-card .g-name{font-weight:800;font-size:15px;line-height:1.3}
@@ -204,8 +216,8 @@ select option{background:var(--panel2)}
 <div class="app">
   <aside class="side">
     <div class="brand">
-      <svg class="logo" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="5" fill="#141D2E" stroke="#2ED47D" stroke-width="2.4"/><circle cx="15" cy="20" r="3.4" fill="#F5A623"/><circle cx="25" cy="20" r="3.4" fill="#38BDF8"/><path d="M13 20h4M23 20h4" stroke="#0E1524" stroke-width="1"/></svg>
-      <div><h1>NS史低情报站</h1><p>Switch 价格追踪 · 口碑推荐</p></div>
+      <div style="font-size:26px;line-height:1.1;flex:0 0 auto">🥕</div>
+      <div style="flex:1;min-width:0"><h1>NS史低情报站</h1><p>Switch 价格追踪 · 口碑推荐</p></div>
     </div>
     <nav class="nav" id="nav"></nav>
     <div class="side-foot" id="sideFoot"></div>
