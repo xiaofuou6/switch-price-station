@@ -1,1912 +1,1912 @@
 {
-  "games": [
-    {
-      "id": "civ6",
-      "name": "文明6",
-      "en": "Sid Meier's Civilization VI",
-      "genres": [
-        "策略",
-        "回合制"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 40,
-          "low": 40,
-          "lowDate": "2026-09-08",
-          "saleEnd": "2026-09-27",
-          "onSale": true
-        },
-        "jp": {
-          "cur": 27,
-          "low": 27,
-          "lowDate": "2026-09-08",
-          "saleEnd": "2026-09-27",
-          "onSale": true
-        },
-        "br": {
-          "cur": 40,
-          "low": 40,
-          "lowDate": "2026-08-20",
-          "saleEnd": "2026-09-27",
-          "onSale": true
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-20",
-          "r": "hk",
-          "p": 52,
-          "t": "sale",
-          "note": "2.5折"
-        },
-        {
-          "d": "2026-08-20",
-          "r": "hk",
-          "p": 45,
-          "t": "sale",
-          "note": "2折"
-        },
-        {
-          "d": "2026-08-20",
-          "r": "br",
-          "p": 40,
-          "t": "low",
-          "note": "2折"
-        },
-        {
-          "d": "2026-09-08",
-          "r": "hk",
-          "p": 40,
-          "t": "low",
-          "note": "2折史低"
-        },
-        {
-          "d": "2026-09-08",
-          "r": "jp",
-          "p": 27,
-          "t": "low",
-          "note": "2折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.6,
-        "fun": 5,
-        "diff": "上手易精通难",
-        "hours": "百小时起",
-        "verdict": "2折史低，策略迷闭眼入"
-      },
-      "suitability": [
-        "策略迷",
-        "深度思考党",
-        "碎片时间玩家"
-      ],
-      "tags": [
-        "经典",
-        "掌机友好",
-        "烧时间"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 40,
-        "region": "hk"
-      },
-      "comments": [
-        {
-          "c": "评论区高频：文明6好玩吗？适合什么人群？",
-          "src": "评论区",
-          "d": "2026-09-10"
-        }
-      ],
-      "demo": {
-        "img": "assets/civ6.jpg",
-        "url": "https://www.bing.com/search?q=%E6%96%87%E6%98%8E6%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
+ "games": [
+  {
+   "id": "civ6",
+   "name": "文明6",
+   "en": "Sid Meier's Civilization VI",
+   "genres": [
+    "策略",
+    "回合制"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 40,
+     "low": 40,
+     "lowDate": "2026-09-08",
+     "saleEnd": "2026-09-27",
+     "onSale": true
     },
-    {
-      "id": "hogwarts",
-      "name": "霍格沃茨之遗（数字豪华版）",
-      "en": "Hogwarts Legacy",
-      "genres": [
-        "开放世界",
-        "动作RPG"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 70,
-          "low": 70,
-          "lowDate": "2026-08-09",
-          "saleEnd": "2026-08-09",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 63,
-          "low": 63,
-          "lowDate": "2026-08-09",
-          "saleEnd": "2026-08-09",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-08-09",
-          "r": "hk",
-          "p": 70,
-          "t": "low",
-          "note": "1.5折史低"
-        },
-        {
-          "d": "2026-08-09",
-          "r": "jp",
-          "p": 63,
-          "t": "low",
-          "note": "1.5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.3,
-        "fun": 4,
-        "diff": "适中",
-        "hours": "40-60小时",
-        "verdict": "哈迷必入，路人建议等PC"
-      },
-      "suitability": [
-        "哈利波特粉丝",
-        "便携党",
-        "能接受降画质"
-      ],
-      "tags": [
-        "粉丝向",
-        "NS体验一般"
-      ],
-      "pcNote": "NS版画质缩水明显、加载偏慢，评论区普遍劝退NS版推荐PC；只有便携刚需才考虑NS，否则等Steam打折。",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 75,
-        "region": "hk"
-      },
-      "comments": [
-        {
-          "c": "评论区：推荐玩吗？直接劝退NS版，推荐PC版",
-          "src": "评论区",
-          "d": "2026-08-12"
-        }
-      ],
-      "demo": {
-        "img": "assets/hogwarts.jpg",
-        "url": "https://www.bing.com/search?q=%E9%9C%8D%E6%A0%BC%E6%B2%83%E8%8C%A8%E4%B9%8B%E9%81%97%EF%BC%88%E6%95%B0%E5%AD%97%E8%B1%AA%E5%8D%8E%E7%89%88%EF%BC%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
+    "jp": {
+     "cur": 27,
+     "low": 27,
+     "lowDate": "2026-09-08",
+     "saleEnd": "2026-09-27",
+     "onSale": true
     },
-    {
-      "id": "mhrsb",
-      "name": "怪物猎人 崛起+曙光",
-      "en": "MHR: Sunbreak",
-      "genres": [
-        "共斗",
-        "动作"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "hk": {
-          "cur": 63,
-          "low": 63,
-          "lowDate": "2026-06-07",
-          "saleEnd": "2026-06-30",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 41,
-          "low": 41,
-          "lowDate": "2026-06-07",
-          "saleEnd": "2026-06-30",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-07",
-          "r": "hk",
-          "p": 63,
-          "t": "low",
-          "note": "2折史低"
-        },
-        {
-          "d": "2026-06-07",
-          "r": "jp",
-          "p": 41,
-          "t": "low",
-          "note": "2折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.7,
-        "fun": 5,
-        "diff": "有学习曲线",
-        "hours": "100小时+",
-        "verdict": "共斗天花板之一，2折可闭眼入"
-      },
-      "suitability": [
-        "联机玩家",
-        "动作游戏爱好者"
-      ],
-      "tags": [
-        "联机",
-        "常青",
-        "中文"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/mhrsb.jpg",
-        "url": "https://www.bing.com/search?q=%E6%80%AA%E7%89%A9%E7%8C%8E%E4%BA%BA%20%E5%B4%9B%E8%B5%B7%2B%E6%9B%99%E5%85%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "mhr",
-      "name": "怪物猎人 崛起",
-      "en": "Monster Hunter Rise",
-      "genres": [
-        "共斗",
-        "动作"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "hk": {
-          "cur": 52,
-          "low": 52,
-          "lowDate": "2026-06-07",
-          "saleEnd": "2026-06-30",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 34,
-          "low": 34,
-          "lowDate": "2026-06-07",
-          "saleEnd": "2026-06-30",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-07",
-          "r": "hk",
-          "p": 52,
-          "t": "low",
-          "note": "2折史低"
-        },
-        {
-          "d": "2026-06-07",
-          "r": "jp",
-          "p": 34,
-          "t": "low",
-          "note": "2折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.6,
-        "fun": 5,
-        "diff": "有学习曲线",
-        "hours": "80小时+",
-        "verdict": "本体2折更香，曙光DLC可后补"
-      },
-      "suitability": [
-        "联机玩家",
-        "动作游戏爱好者"
-      ],
-      "tags": [
-        "联机",
-        "中文"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/mhr.jpg",
-        "url": "https://www.bing.com/search?q=%E6%80%AA%E7%89%A9%E7%8C%8E%E4%BA%BA%20%E5%B4%9B%E8%B5%B7%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "splitfiction",
-      "name": "双影奇境（Switch2版）",
-      "en": "Split Fiction",
-      "genres": [
-        "双人合作",
-        "动作冒险"
-      ],
-      "zh": true,
-      "players": "2人",
-      "regions": {
-        "hk": {
-          "cur": 222,
-          "low": 222,
-          "lowDate": "2026-09-04",
-          "saleEnd": "2026-09-13",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 191,
-          "low": 191,
-          "lowDate": "2026-09-04",
-          "saleEnd": "2026-09-13",
-          "onSale": false
-        },
-        "us": {
-          "cur": 220,
-          "low": 220,
-          "lowDate": "2026-06-26",
-          "saleEnd": "2026-07-09",
-          "onSale": false
-        },
-        "br": {
-          "cur": 211,
-          "low": 211,
-          "lowDate": "2026-06-26",
-          "saleEnd": "2026-07-09",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-26",
-          "r": "us",
-          "p": 220,
-          "t": "low",
-          "note": "6.5折新史低"
-        },
-        {
-          "d": "2026-06-26",
-          "r": "br",
-          "p": 211,
-          "t": "low",
-          "note": "6.5折新史低"
-        },
-        {
-          "d": "2026-09-04",
-          "r": "hk",
-          "p": 222,
-          "t": "low",
-          "note": "6.5折史低"
-        },
-        {
-          "d": "2026-09-04",
-          "r": "jp",
-          "p": 191,
-          "t": "low",
-          "note": "6.5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.8,
-        "fun": 5,
-        "diff": "适中",
-        "hours": "15-20小时",
-        "verdict": "年度双人神作，Switch2版体验好"
-      },
-      "suitability": [
-        "情侣/好友双人",
-        "合作游戏爱好者"
-      ],
-      "tags": [
-        "双人",
-        "神作",
-        "Switch2"
-      ],
-      "pcNote": "PC画质上限更高；Switch2版便携加分，双人线下同屏方便。",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 200,
-        "region": "jp"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/splitfiction.jpg",
-        "url": "https://www.bing.com/search?q=%E5%8F%8C%E5%BD%B1%E5%A5%87%E5%A2%83%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "nba2k26",
-      "name": "NBA 2K26（Switch2版）",
-      "en": "NBA 2K26",
-      "genres": [
-        "体育"
-      ],
-      "zh": true,
-      "players": "1-2人",
-      "regions": {
-        "hk": {
-          "cur": 46,
-          "low": 46,
-          "lowDate": "2026-07-26",
-          "saleEnd": "2026-07-26",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 36,
-          "low": 36,
-          "lowDate": "2026-07-26",
-          "saleEnd": "2026-07-26",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-07-26",
-          "r": "hk",
-          "p": 46,
-          "t": "low",
-          "note": "1折新史低"
-        },
-        {
-          "d": "2026-07-26",
-          "r": "jp",
-          "p": 36,
-          "t": "low",
-          "note": "1折新史低"
-        }
-      ],
-      "rating": {
-        "community": 3.6,
-        "fun": 3,
-        "diff": "易上手",
-        "hours": "年货",
-        "verdict": "体育年货，1折尝鲜可以"
-      },
-      "suitability": [
-        "篮球迷",
-        "年货党"
-      ],
-      "tags": [
-        "体育",
-        "年货",
-        "Switch2"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/nba2k26.jpg",
-        "url": "https://www.bing.com/search?q=NBA%202K26%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "sf6",
-      "name": "街头霸王6（Switch2版）",
-      "en": "Street Fighter 6",
-      "genres": [
-        "格斗"
-      ],
-      "zh": true,
-      "players": "1-2人",
-      "regions": {
-        "hk": {
-          "cur": 124,
-          "low": 124,
-          "lowDate": "2026-06-07",
-          "saleEnd": "2026-06-30",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 103,
-          "low": 103,
-          "lowDate": "2026-07-30",
-          "saleEnd": "2026-08-24",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-07",
-          "r": "hk",
-          "p": 124,
-          "t": "low",
-          "note": "5折史低"
-        },
-        {
-          "d": "2026-06-07",
-          "r": "jp",
-          "p": 106,
-          "t": "sale",
-          "note": "5折"
-        },
-        {
-          "d": "2026-07-30",
-          "r": "jp",
-          "p": 103,
-          "t": "low",
-          "note": "5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.8,
-        "fun": 5,
-        "diff": "上手易精通难",
-        "hours": "不限",
-        "verdict": "格斗天花板（MC92），Switch2版表现好"
-      },
-      "suitability": [
-        "格斗玩家",
-        "竞技党"
-      ],
-      "tags": [
-        "格斗",
-        "竞技",
-        "Switch2"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "jp"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/sf6.jpg",
-        "url": "https://www.bing.com/search?q=%E8%A1%97%E5%A4%B4%E9%9C%B8%E7%8E%8B6%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "ittakestwo",
-      "name": "双人成行",
-      "en": "It Takes Two",
-      "genres": [
-        "双人合作",
-        "动作冒险"
-      ],
-      "zh": true,
-      "players": "2人",
-      "regions": {
-        "br": {
-          "cur": 129,
-          "low": 129,
-          "lowDate": "2026-06-26",
-          "saleEnd": "2026-07-09",
-          "onSale": false
-        },
-        "us": {
-          "cur": 135,
-          "low": 135,
-          "lowDate": "2026-06-26",
-          "saleEnd": "2026-07-09",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-26",
-          "r": "br",
-          "p": 129,
-          "t": "low",
-          "note": "5折史低"
-        },
-        {
-          "d": "2026-06-26",
-          "r": "us",
-          "p": 135,
-          "t": "low",
-          "note": "5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.8,
-        "fun": 5,
-        "diff": "适中",
-        "hours": "12-15小时",
-        "verdict": "双人游戏必玩，5折必入"
-      },
-      "suitability": [
-        "情侣/好友双人"
-      ],
-      "tags": [
-        "双人",
-        "必玩"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 130,
-        "region": "us"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/ittakestwo.jpg",
-        "url": "https://www.bing.com/search?q=%E5%8F%8C%E4%BA%BA%E6%88%90%E8%A1%8C%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "witcher3",
-      "name": "巫师3 狂猎 完整版",
-      "en": "The Witcher 3: Wild Hunt",
-      "genres": [
-        "开放世界",
-        "动作RPG"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 109,
-          "low": 109,
-          "lowDate": "2025-08-28",
-          "saleEnd": "2025-09-15",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2025-08-28",
-          "r": "hk",
-          "p": 109,
-          "t": "low",
-          "note": "2.5折史低"
-        },
-        {
-          "d": "2026-06-28",
-          "r": "hk",
-          "p": 87,
-          "t": "sale",
-          "note": "夏季促销"
-        },
-        {
-          "d": "2026-06-28",
-          "r": "hk",
-          "p": 87,
-          "t": "sale",
-          "note": "夏季促销"
-        }
-      ],
-      "rating": {
-        "community": 4.9,
-        "fun": 5,
-        "diff": "适中",
-        "hours": "100小时+",
-        "verdict": "NS移植标杆之一，掌机偏糊但值得"
-      },
-      "suitability": [
-        "剧情党",
-        "开放世界爱好者"
-      ],
-      "tags": [
-        "剧情神作",
-        "移植标杆",
-        "NS体验一般"
-      ],
-      "pcNote": "PC版画质/帧数碾压，NS版胜在便携；完整版含《石之心》《血与酒》两部大型DLC。",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 100,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/witcher3.jpg",
-        "url": "https://www.bing.com/search?q=%E5%B7%AB%E5%B8%883%20%E7%8B%82%E7%8C%8E%20%E5%AE%8C%E6%95%B4%E7%89%88%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "botw",
-      "name": "塞尔达传说 旷野之息",
-      "en": "The Legend of Zelda: Breath of the Wild",
-      "genres": [
-        "冒险",
-        "开放世界"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "cart": {
-          "cur": 235,
-          "low": 213,
-          "lowDate": "2026-09-11",
-          "saleEnd": null,
-          "onSale": false
-        },
-        "hk": {
-          "cur": null,
-          "tbd": true
-        }
-      },
-      "history": [
-        {
-          "d": "2026-09-11",
-          "r": "cart",
-          "p": 213,
-          "t": "low",
-          "note": "卡带新史低"
-        },
-        {
-          "d": "2026-09-14",
-          "r": "cart",
-          "p": 235,
-          "t": "sale",
-          "note": "卡带行情"
-        }
-      ],
-      "rating": {
-        "community": 5,
-        "fun": 5,
-        "diff": "适中",
-        "hours": "100小时+",
-        "verdict": "Switch时代最强之一，看到史低就入"
-      },
-      "suitability": [
-        "所有玩家",
-        "开放世界入门"
-      ],
-      "tags": [
-        "神作",
-        "保值",
-        "卡带坚挺"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 235,
-        "region": "cart"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/botw.jpg",
-        "url": "https://www.bing.com/search?q=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E6%97%B7%E9%87%8E%E4%B9%8B%E6%81%AF%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "totk",
-      "name": "塞尔达传说 王国之泪",
-      "en": "The Legend of Zelda: Tears of the Kingdom",
-      "genres": [
-        "冒险",
-        "开放世界"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "cart": {
-          "cur": 253,
-          "low": 253,
-          "lowDate": "2026-09-14",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-09-14",
-          "r": "cart",
-          "p": 253,
-          "t": "low",
-          "note": "卡带新史低"
-        }
-      ],
-      "rating": {
-        "community": 5,
-        "fun": 5,
-        "diff": "适中",
-        "hours": "120小时+",
-        "verdict": "续作天花板，卡带253值得入"
-      },
-      "suitability": [
-        "所有玩家",
-        "旷野之息通关者"
-      ],
-      "tags": [
-        "神作",
-        "卡带"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "cart"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/totk.jpg",
-        "url": "https://www.bing.com/search?q=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E7%8E%8B%E5%9B%BD%E4%B9%8B%E6%B3%AA%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "splatoon3",
-      "name": "喷射战士3（斯普拉遁3）",
-      "en": "Splatoon 3",
-      "genres": [
-        "射击",
-        "联机"
-      ],
-      "zh": true,
-      "players": "1-8人",
-      "regions": {
-        "cart": {
-          "cur": 191,
-          "low": 191,
-          "lowDate": "2026-09-14",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-09-14",
-          "r": "cart",
-          "p": 191,
-          "t": "low",
-          "note": "卡带新史低"
-        }
-      ],
-      "rating": {
-        "community": 4.7,
-        "fun": 5,
-        "diff": "易上手",
-        "hours": "不限",
-        "verdict": "任系联机派对之王，破200即可入"
-      },
-      "suitability": [
-        "联机玩家",
-        "休闲玩家"
-      ],
-      "tags": [
-        "联机",
-        "派对",
-        "卡带"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 200,
-        "region": "cart"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/splatoon3.jpg",
-        "url": "https://www.bing.com/search?q=%E5%96%B7%E5%B0%84%E6%88%98%E5%A3%AB3%EF%BC%88%E6%96%AF%E6%99%AE%E6%8B%89%E9%81%813%EF%BC%89%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "hades",
-      "name": "哈迪斯",
-      "en": "Hades",
-      "genres": [
-        "肉鸽",
-        "动作"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "jp": {
-          "cur": 34,
-          "nativeCur": 700,
-          "currency": "JPY",
-          "low": 34,
-          "lowDate": "2026-04-28",
-          "saleEnd": "2026-04-28",
-          "onSale": false
-        },
-        "br": {
-          "cur": 31,
-          "low": 31,
-          "lowDate": "2026-04-16",
-          "saleEnd": "2026-04-29",
-          "onSale": false
-        },
-        "us": {
-          "cur": 42,
-          "low": 42,
-          "lowDate": "2026-04-22",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-04-16",
-          "r": "br",
-          "p": 31,
-          "t": "low",
-          "note": "2.5折史低"
-        },
-        {
-          "d": "2026-04-22",
-          "r": "us",
-          "p": 42,
-          "t": "low",
-          "note": "2.5折"
-        },
-        {
-          "d": "2026-04-28",
-          "r": "jp",
-          "p": 34,
-          "t": "low",
-          "note": "700円 75%OFF"
-        }
-      ],
-      "rating": {
-        "community": 4.9,
-        "fun": 5,
-        "diff": "上手易精通难",
-        "hours": "60小时+",
-        "verdict": "肉鸽教科书，30元档闭眼入"
-      },
-      "suitability": [
-        "肉鸽爱好者",
-        "动作玩家"
-      ],
-      "tags": [
-        "肉鸽",
-        "神作",
-        "中文"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 35,
-        "region": "br"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/hades.jpg",
-        "url": "https://www.bing.com/search?q=%E5%93%88%E8%BF%AA%E6%96%AF%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "echoes",
-      "name": "塞尔达传说 智慧的再现",
-      "en": "The Legend of Zelda: Echoes of Wisdom",
-      "genres": [
-        "冒险",
-        "解谜"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 202,
-          "low": 202,
-          "lowDate": "2026-02-11",
-          "saleEnd": "2026-02-24",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 64,
-          "low": 64,
-          "lowDate": "2026-02-11",
-          "saleEnd": "2026-02-18",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-02-11",
-          "r": "hk",
-          "p": 202,
-          "t": "low",
-          "note": "7折史低"
-        },
-        {
-          "d": "2026-02-11",
-          "r": "jp",
-          "p": 64,
-          "t": "low",
-          "note": "7折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.4,
-        "fun": 4,
-        "diff": "轻松",
-        "hours": "30小时",
-        "verdict": "塞尔达新玩法，7折可入"
-      },
-      "suitability": [
-        "塞尔达粉",
-        "解谜爱好者"
-      ],
-      "tags": [
-        "塞尔达",
-        "解谜"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/echoes.jpg",
-        "url": "https://www.bing.com/search?q=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E6%99%BA%E6%85%A7%E7%9A%84%E5%86%8D%E7%8E%B0%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "nssports",
-      "name": "Nintendo Switch 运动",
-      "en": "Nintendo Switch Sports",
-      "genres": [
-        "体感",
-        "运动"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "hk": {
-          "cur": 134,
-          "low": 134,
-          "lowDate": "2026-02-11",
-          "saleEnd": "2026-02-24",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-02-11",
-          "r": "hk",
-          "p": 134,
-          "t": "low",
-          "note": "7折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.2,
-        "fun": 4,
-        "diff": "零门槛",
-        "hours": "不限",
-        "verdict": "合家欢体感，7折史低可入"
-      },
-      "suitability": [
-        "合家欢",
-        "体感玩家"
-      ],
-      "tags": [
-        "体感",
-        "派对"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/nssports.jpg",
-        "url": "https://www.bing.com/search?q=Nintendo%20Switch%20%E8%BF%90%E5%8A%A8%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "legodc",
-      "name": "乐高DC超级反派",
-      "en": "LEGO DC Super-Villains",
-      "genres": [
-        "动作",
-        "冒险"
-      ],
-      "zh": true,
-      "players": "1-2人",
-      "regions": {
-        "hk": {
-          "cur": 32,
-          "low": 32,
-          "lowDate": "2026-06-14",
-          "saleEnd": "2026-07-02",
-          "onSale": false
-        },
-        "jp": {
-          "cur": 25,
-          "low": 25,
-          "lowDate": "2026-06-14",
-          "saleEnd": "2026-07-02",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-06-14",
-          "r": "hk",
-          "p": 32,
-          "t": "low",
-          "note": "1折史低"
-        },
-        {
-          "d": "2026-06-14",
-          "r": "jp",
-          "p": 25,
-          "t": "low",
-          "note": "1折史低"
-        }
-      ],
-      "rating": {
-        "community": 4,
-        "fun": 4,
-        "diff": "轻松",
-        "hours": "20小时",
-        "verdict": "1折价格屠夫，DC/乐高粉入"
-      },
-      "suitability": [
-        "DC粉丝",
-        "乐高粉",
-        "亲子"
-      ],
-      "tags": [
-        "乐高",
-        "超英",
-        "白菜价"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/legodc.jpg",
-        "url": "https://www.bing.com/search?q=%E4%B9%90%E9%AB%98DC%E8%B6%85%E7%BA%A7%E5%8F%8D%E6%B4%BE%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "tgyh",
-      "name": "谢天谢地你来了",
-      "en": "Thank Goodness You're Here!",
-      "genres": [
-        "喜剧",
-        "冒险"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 50,
-          "low": 50,
-          "lowDate": "2026-09-08",
-          "saleEnd": "2026-10-01",
-          "onSale": true
-        },
-        "jp": {
-          "cur": 47,
-          "low": 47,
-          "lowDate": "2026-09-08",
-          "saleEnd": "2026-10-01",
-          "onSale": true
-        }
-      },
-      "history": [
-        {
-          "d": "2026-09-08",
-          "r": "hk",
-          "p": 50,
-          "t": "low",
-          "note": "5折史低"
-        },
-        {
-          "d": "2026-09-08",
-          "r": "jp",
-          "p": 47,
-          "t": "low",
-          "note": "5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.5,
-        "fun": 4,
-        "diff": "轻松",
-        "hours": "4-6小时",
-        "verdict": "英式无厘头喜剧，打折入超值"
-      },
-      "suitability": [
-        "喜剧爱好者",
-        "碎片时间"
-      ],
-      "tags": [
-        "喜剧",
-        "短流程"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/tgyh.jpg",
-        "url": "https://www.bing.com/search?q=%E8%B0%A2%E5%A4%A9%E8%B0%A2%E5%9C%B0%E4%BD%A0%E6%9D%A5%E4%BA%86%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "diablo3",
-      "name": "暗黑破坏神 万恶之源珍藏组合",
-      "en": "Diablo Prime Evil Collection",
-      "genres": [
-        "刷宝",
-        "动作RPG"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "hk": {
-          "tbd": true
-        },
-        "jp": {
-          "tbd": true
-        }
-      },
-      "history": [],
-      "lowInfo": "2026-09-04 速报为 3.3 折史低，具体价格待核实，登记价格后开始追踪。",
-      "rating": {
-        "community": 4.4,
-        "fun": 4,
-        "diff": "易上手",
-        "hours": "100小时+",
-        "verdict": "刷宝党福音，3.3折可入"
-      },
-      "suitability": [
-        "刷宝党",
-        "暗黑粉"
-      ],
-      "tags": [
-        "刷宝",
-        "联机"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/diablo3.jpg",
-        "url": "https://www.bing.com/search?q=%E6%9A%97%E9%BB%91%E7%A0%B4%E5%9D%8F%E7%A5%9E%20%E4%B8%87%E6%81%B6%E4%B9%8B%E6%BA%90%E7%8F%8D%E8%97%8F%E7%BB%84%E5%90%88%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "dbz",
-      "name": "七龙珠Z 卡卡洛特+新觉醒篇",
-      "en": "Dragon Ball Z: Kakarot + A New Power Awakens",
-      "genres": [
-        "动作RPG",
-        "开放世界"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 63,
-          "low": 63,
-          "lowDate": "2026-08-20",
-          "saleEnd": "2026-09-13",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-08-20",
-          "r": "hk",
-          "p": 63,
-          "t": "low",
-          "note": "5折史低"
-        }
-      ],
-      "rating": {
-        "community": 4.3,
-        "fun": 4,
-        "diff": "易上手",
-        "hours": "40小时",
-        "verdict": "龙珠粉必入，5折很值"
-      },
-      "suitability": [
-        "龙珠粉丝"
-      ],
-      "tags": [
-        "粉丝向",
-        "龙珠"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/dbz.jpg",
-        "url": "https://www.bing.com/search?q=%E4%B8%83%E9%BE%99%E7%8F%A0Z%20%E5%8D%A1%E5%8D%A1%E6%B4%9B%E7%89%B9%2B%E6%96%B0%E8%A7%89%E9%86%92%E7%AF%87%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "bokujou",
-      "name": "牧场物语 来吧！风之繁华集市",
-      "en": "Story of Seasons: Grand Bazaar",
-      "genres": [
-        "种田模拟"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "hk": {
-          "cur": 157,
-          "low": 157,
-          "lowDate": "2026-08-25",
-          "saleEnd": "2026-09-06",
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-08-25",
-          "r": "hk",
-          "p": 157,
-          "t": "low",
-          "note": "6折新史低"
-        }
-      ],
-      "rating": {
-        "community": 4.1,
-        "fun": 4,
-        "diff": "轻松",
-        "hours": "50小时+",
-        "verdict": "种田党可选，6折新史低"
-      },
-      "suitability": [
-        "种田党",
-        "休闲玩家"
-      ],
-      "tags": [
-        "种田",
-        "休闲"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "hk"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/bokujou.jpg",
-        "url": "https://www.bing.com/search?q=%E7%89%A7%E5%9C%BA%E7%89%A9%E8%AF%AD%20%E6%9D%A5%E5%90%A7%EF%BC%81%E9%A3%8E%E4%B9%8B%E7%B9%81%E5%8D%8E%E9%9B%86%E5%B8%82%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "acnh",
-      "name": "集合啦！动物森友会",
-      "en": "Animal Crossing: New Horizons",
-      "genres": [
-        "种田模拟",
-        "社交"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "hk": {
-          "cur": 329,
-          "low": null,
-          "lowDate": null,
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [],
-      "rating": {
-        "community": 4.8,
-        "fun": 5,
-        "diff": "零门槛",
-        "hours": "不限",
-        "verdict": "社交种田天花板，价格坚挺，想玩就入"
-      },
-      "suitability": [
-        "所有玩家",
-        "社交玩家",
-        "休闲党"
-      ],
-      "tags": [
-        "常青",
-        "保值",
-        "社交"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 299,
-        "region": "hk"
-      },
-      "comments": [
-        {
-          "c": "评论区高频：动森什么时候打折？现在该不该入？",
-          "src": "评论区",
-          "d": "2026-09-05"
-        }
-      ],
-      "demo": {
-        "img": "assets/acnh.jpg",
-        "url": "https://www.bing.com/search?q=%E9%9B%86%E5%90%88%E5%95%A6%EF%BC%81%E5%8A%A8%E7%89%A9%E6%A3%AE%E5%8F%8B%E4%BC%9A%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "stardew",
-      "name": "星露谷物语",
-      "en": "Stardew Valley",
-      "genres": [
-        "种田模拟"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "jp": {
-          "cur": 66,
-          "nativeCur": 1345,
-          "currency": "JPY",
-          "low": null,
-          "lowDate": null,
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [],
-      "lowInfo": "日区常价 1345円，打折不频繁，见到 -20% 以上即可入。",
-      "rating": {
-        "community": 4.9,
-        "fun": 5,
-        "diff": "轻松",
-        "hours": "100小时+",
-        "verdict": "百元内神作，原价买也不亏"
-      },
-      "suitability": [
-        "种田党",
-        "休闲玩家",
-        "所有玩家"
-      ],
-      "tags": [
-        "常青",
-        "神作",
-        "少打折"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 55,
-        "region": "jp"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/stardew.jpg",
-        "url": "https://www.bing.com/search?q=%E6%98%9F%E9%9C%B2%E8%B0%B7%E7%89%A9%E8%AF%AD%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "hollowknight",
-      "name": "空洞骑士",
-      "en": "Hollow Knight",
-      "genres": [
-        "银河城",
-        "动作"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "us": {
-          "cur": 108,
-          "nativeCur": 15,
-          "currency": "USD",
-          "low": null,
-          "lowDate": null,
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [],
-      "lowInfo": "美服常价 $15，史低约 5 折（$7.5 档），蹲到 5 折再入。",
-      "rating": {
-        "community": 4.9,
-        "fun": 5,
-        "diff": "较难",
-        "hours": "40-60小时",
-        "verdict": "2D银河城巅峰，原价买都值"
-      },
-      "suitability": [
-        "硬核玩家",
-        "银河城爱好者"
-      ],
-      "tags": [
-        "常青",
-        "神作",
-        "难度高"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": true,
-        "target": 55,
-        "region": "us"
-      },
-      "comments": [
-        {
-          "c": "评论区高频：空洞骑士现在该不该入？",
-          "src": "评论区",
-          "d": "2026-09-08"
-        }
-      ],
-      "demo": {
-        "img": "assets/hollowknight.jpg",
-        "url": "https://www.bing.com/search?q=%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "deadcells",
-      "name": "死亡细胞",
-      "en": "Dead Cells",
-      "genres": [
-        "肉鸽",
-        "横版动作"
-      ],
-      "zh": true,
-      "players": "1人",
-      "regions": {
-        "jp": {
-          "cur": 34,
-          "low": 34,
-          "lowDate": "2026-02-22",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-02-22",
-          "r": "jp",
-          "p": 34,
-          "t": "low",
-          "note": "70%折扣史低"
-        }
-      ],
-      "rating": {
-        "community": 4.6,
-        "fun": 5,
-        "diff": "较难",
-        "hours": "60小时+",
-        "verdict": "爽快肉鸽，7折 off 超值"
-      },
-      "suitability": [
-        "肉鸽爱好者"
-      ],
-      "tags": [
-        "肉鸽",
-        "爽快"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "jp"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/deadcells.jpg",
-        "url": "https://www.bing.com/search?q=%E6%AD%BB%E4%BA%A1%E7%BB%86%E8%83%9E%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "unravel2",
-      "name": "毛线小精灵2",
-      "en": "Unravel Two",
-      "genres": [
-        "双人合作",
-        "平台跳跃"
-      ],
-      "zh": true,
-      "players": "1-2人",
-      "regions": {
-        "nz": {
-          "cur": 37,
-          "low": 37,
-          "lowDate": "2026-02-22",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-02-22",
-          "r": "nz",
-          "p": 37,
-          "t": "low",
-          "note": "70%折扣史低"
-        }
-      ],
-      "rating": {
-        "community": 4.5,
-        "fun": 4,
-        "diff": "适中",
-        "hours": "8小时",
-        "verdict": "唯美双人合作，70% off 可入"
-      },
-      "suitability": [
-        "双人党",
-        "剧情党"
-      ],
-      "tags": [
-        "双人",
-        "唯美"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "nz"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/unravel2.jpg",
-        "url": "https://www.bing.com/search?q=%E6%AF%9B%E7%BA%BF%E5%B0%8F%E7%B2%BE%E7%81%B52%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
-    },
-    {
-      "id": "sohr4",
-      "name": "怒之铁拳4",
-      "en": "Streets of Rage 4",
-      "genres": [
-        "横版动作"
-      ],
-      "zh": true,
-      "players": "1-4人",
-      "regions": {
-        "jp": {
-          "cur": 35,
-          "low": 35,
-          "lowDate": "2026-02-22",
-          "saleEnd": null,
-          "onSale": false
-        }
-      },
-      "history": [
-        {
-          "d": "2026-02-22",
-          "r": "jp",
-          "p": 35,
-          "t": "low",
-          "note": "70%折扣史低"
-        }
-      ],
-      "rating": {
-        "community": 4.6,
-        "fun": 4,
-        "diff": "适中",
-        "hours": "20小时",
-        "verdict": "爽快清版格斗，同屏4人"
-      },
-      "suitability": [
-        "动作玩家",
-        "怀旧党"
-      ],
-      "tags": [
-        "清版",
-        "联机"
-      ],
-      "pcNote": "",
-      "video": {
-        "title": "",
-        "url": ""
-      },
-      "watch": {
-        "on": false,
-        "target": 0,
-        "region": "jp"
-      },
-      "comments": [],
-      "demo": {
-        "img": "assets/sohr4.jpg",
-        "url": "https://www.bing.com/search?q=%E6%80%92%E4%B9%8B%E9%93%81%E6%8B%B34%20Switch%20%E5%AE%98%E6%96%B9%E8%AF%95%E7%8E%A9%20Demo",
-        "label": "打开试玩 / Demo 信息"
-      }
+    "br": {
+     "cur": 40,
+     "low": 40,
+     "lowDate": "2026-08-20",
+     "saleEnd": "2026-09-27",
+     "onSale": true
     }
-  ],
-  "ideas": [
+   },
+   "history": [
     {
-      "text": "动森什么时候打折？值得买吗",
-      "tag": "蹲折扣",
-      "status": "done",
-      "d": "2026-09-01"
+     "d": "2026-06-20",
+     "r": "hk",
+     "p": 52,
+     "t": "sale",
+     "note": "2.5折"
     },
     {
-      "text": "星露谷 NS 版和 PC 版怎么选",
-      "tag": "跨平台",
-      "status": "todo",
-      "d": "2026-09-02"
+     "d": "2026-08-20",
+     "r": "hk",
+     "p": 45,
+     "t": "sale",
+     "note": "2折"
     },
     {
-      "text": "空洞骑士现在该不该入",
-      "tag": "蹲折扣",
-      "status": "todo",
-      "d": "2026-09-08"
+     "d": "2026-08-20",
+     "r": "br",
+     "p": 40,
+     "t": "low",
+     "note": "2折"
     },
     {
-      "text": "换区会被清空余额吗？怎么操作",
-      "tag": "换区教程",
-      "status": "todo",
-      "d": "2026-09-03"
+     "d": "2026-09-08",
+     "r": "hk",
+     "p": 40,
+     "t": "low",
+     "note": "2折史低"
     },
     {
-      "text": "霍格沃茨之遗推荐玩吗？NS版值不值",
-      "tag": "跨平台",
-      "status": "todo",
-      "d": "2026-08-12"
-    },
-    {
-      "text": "求本周史低汇总",
-      "tag": "史低速报",
-      "status": "done",
-      "d": "2026-09-15"
-    },
-    {
-      "text": "文明6好玩吗，适合什么人",
-      "tag": "好不好玩",
-      "status": "todo",
-      "d": "2026-09-10"
-    },
-    {
-      "text": "哪些游戏 NS 版体验差，建议等 PC/买卡带",
-      "tag": "跨平台",
-      "status": "todo",
-      "d": "2026-09-12"
-    },
-    {
-      "text": "巴西区怎么付款？点卡充值安全吗",
-      "tag": "换区教程",
-      "status": "todo",
-      "d": "2026-09-06"
+     "d": "2026-09-08",
+     "r": "jp",
+     "p": 27,
+     "t": "low",
+     "note": "2折史低"
     }
-  ],
-  "meta": {
-    "dataDate": "2026-09-20",
-    "rates": {
-      "JPY": 0.048,
-      "HKD": 0.92,
-      "USD": 7.15,
-      "BRL": 1.28,
-      "NZD": 4.3,
-      "CNY": 1
+   ],
+   "rating": {
+    "community": 4.6,
+    "fun": 5,
+    "diff": "上手易精通难",
+    "hours": "百小时起",
+    "verdict": "2折史低，策略迷闭眼入"
+   },
+   "suitability": [
+    "策略迷",
+    "深度思考党",
+    "碎片时间玩家"
+   ],
+   "tags": [
+    "经典",
+    "掌机友好",
+    "烧时间"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 40,
+    "region": "hk"
+   },
+   "comments": [
+    {
+     "c": "评论区高频：文明6好玩吗？适合什么人群？",
+     "src": "评论区",
+     "d": "2026-09-10"
+    }
+   ],
+   "demo": {
+    "img": "assets/civ6.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%96%87%E6%98%8E6%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "hogwarts",
+   "name": "霍格沃茨之遗（数字豪华版）",
+   "en": "Hogwarts Legacy",
+   "genres": [
+    "开放世界",
+    "动作RPG"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 70,
+     "low": 70,
+     "lowDate": "2026-08-09",
+     "saleEnd": "2026-08-09",
+     "onSale": false
     },
-    "note": "种子数据来自公开史低速报（2026 年快照），价格为人民币折算参考，部分待核实。登记新价格即可更新追踪。"
+    "jp": {
+     "cur": 63,
+     "low": 63,
+     "lowDate": "2026-08-09",
+     "saleEnd": "2026-08-09",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-08-09",
+     "r": "hk",
+     "p": 70,
+     "t": "low",
+     "note": "1.5折史低"
+    },
+    {
+     "d": "2026-08-09",
+     "r": "jp",
+     "p": 63,
+     "t": "low",
+     "note": "1.5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.3,
+    "fun": 4,
+    "diff": "适中",
+    "hours": "40-60小时",
+    "verdict": "哈迷必入，路人建议等PC"
+   },
+   "suitability": [
+    "哈利波特粉丝",
+    "便携党",
+    "能接受降画质"
+   ],
+   "tags": [
+    "粉丝向",
+    "NS体验一般"
+   ],
+   "pcNote": "NS版画质缩水明显、加载偏慢，评论区普遍劝退NS版推荐PC；只有便携刚需才考虑NS，否则等Steam打折。",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 75,
+    "region": "hk"
+   },
+   "comments": [
+    {
+     "c": "评论区：推荐玩吗？直接劝退NS版，推荐PC版",
+     "src": "评论区",
+     "d": "2026-08-12"
+    }
+   ],
+   "demo": {
+    "img": "assets/hogwarts.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E9%9C%8D%E6%A0%BC%E6%B2%83%E8%8C%A8%E4%B9%8B%E9%81%97%EF%BC%88%E6%95%B0%E5%AD%97%E8%B1%AA%E5%8D%8E%E7%89%88%EF%BC%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "mhrsb",
+   "name": "怪物猎人 崛起+曙光",
+   "en": "MHR: Sunbreak",
+   "genres": [
+    "共斗",
+    "动作"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "hk": {
+     "cur": 63,
+     "low": 63,
+     "lowDate": "2026-06-07",
+     "saleEnd": "2026-06-30",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 41,
+     "low": 41,
+     "lowDate": "2026-06-07",
+     "saleEnd": "2026-06-30",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-07",
+     "r": "hk",
+     "p": 63,
+     "t": "low",
+     "note": "2折史低"
+    },
+    {
+     "d": "2026-06-07",
+     "r": "jp",
+     "p": 41,
+     "t": "low",
+     "note": "2折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.7,
+    "fun": 5,
+    "diff": "有学习曲线",
+    "hours": "100小时+",
+    "verdict": "共斗天花板之一，2折可闭眼入"
+   },
+   "suitability": [
+    "联机玩家",
+    "动作游戏爱好者"
+   ],
+   "tags": [
+    "联机",
+    "常青",
+    "中文"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/mhrsb.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%80%AA%E7%89%A9%E7%8C%8E%E4%BA%BA%20%E5%B4%9B%E8%B5%B7%2B%E6%9B%99%E5%85%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "mhr",
+   "name": "怪物猎人 崛起",
+   "en": "Monster Hunter Rise",
+   "genres": [
+    "共斗",
+    "动作"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "hk": {
+     "cur": 52,
+     "low": 52,
+     "lowDate": "2026-06-07",
+     "saleEnd": "2026-06-30",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 34,
+     "low": 34,
+     "lowDate": "2026-06-07",
+     "saleEnd": "2026-06-30",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-07",
+     "r": "hk",
+     "p": 52,
+     "t": "low",
+     "note": "2折史低"
+    },
+    {
+     "d": "2026-06-07",
+     "r": "jp",
+     "p": 34,
+     "t": "low",
+     "note": "2折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.6,
+    "fun": 5,
+    "diff": "有学习曲线",
+    "hours": "80小时+",
+    "verdict": "本体2折更香，曙光DLC可后补"
+   },
+   "suitability": [
+    "联机玩家",
+    "动作游戏爱好者"
+   ],
+   "tags": [
+    "联机",
+    "中文"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/mhr.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%80%AA%E7%89%A9%E7%8C%8E%E4%BA%BA%20%E5%B4%9B%E8%B5%B7%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "splitfiction",
+   "name": "双影奇境（Switch2版）",
+   "en": "Split Fiction",
+   "genres": [
+    "双人合作",
+    "动作冒险"
+   ],
+   "zh": true,
+   "players": "2人",
+   "regions": {
+    "hk": {
+     "cur": 222,
+     "low": 222,
+     "lowDate": "2026-09-04",
+     "saleEnd": "2026-09-13",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 191,
+     "low": 191,
+     "lowDate": "2026-09-04",
+     "saleEnd": "2026-09-13",
+     "onSale": false
+    },
+    "us": {
+     "cur": 220,
+     "low": 220,
+     "lowDate": "2026-06-26",
+     "saleEnd": "2026-07-09",
+     "onSale": false
+    },
+    "br": {
+     "cur": 211,
+     "low": 211,
+     "lowDate": "2026-06-26",
+     "saleEnd": "2026-07-09",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-26",
+     "r": "us",
+     "p": 220,
+     "t": "low",
+     "note": "6.5折新史低"
+    },
+    {
+     "d": "2026-06-26",
+     "r": "br",
+     "p": 211,
+     "t": "low",
+     "note": "6.5折新史低"
+    },
+    {
+     "d": "2026-09-04",
+     "r": "hk",
+     "p": 222,
+     "t": "low",
+     "note": "6.5折史低"
+    },
+    {
+     "d": "2026-09-04",
+     "r": "jp",
+     "p": 191,
+     "t": "low",
+     "note": "6.5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.8,
+    "fun": 5,
+    "diff": "适中",
+    "hours": "15-20小时",
+    "verdict": "年度双人神作，Switch2版体验好"
+   },
+   "suitability": [
+    "情侣/好友双人",
+    "合作游戏爱好者"
+   ],
+   "tags": [
+    "双人",
+    "神作",
+    "Switch2"
+   ],
+   "pcNote": "PC画质上限更高；Switch2版便携加分，双人线下同屏方便。",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 200,
+    "region": "jp"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/splitfiction.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%8F%8C%E5%BD%B1%E5%A5%87%E5%A2%83%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "nba2k26",
+   "name": "NBA 2K26（Switch2版）",
+   "en": "NBA 2K26",
+   "genres": [
+    "体育"
+   ],
+   "zh": true,
+   "players": "1-2人",
+   "regions": {
+    "hk": {
+     "cur": 46,
+     "low": 46,
+     "lowDate": "2026-07-26",
+     "saleEnd": "2026-07-26",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 36,
+     "low": 36,
+     "lowDate": "2026-07-26",
+     "saleEnd": "2026-07-26",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-07-26",
+     "r": "hk",
+     "p": 46,
+     "t": "low",
+     "note": "1折新史低"
+    },
+    {
+     "d": "2026-07-26",
+     "r": "jp",
+     "p": 36,
+     "t": "low",
+     "note": "1折新史低"
+    }
+   ],
+   "rating": {
+    "community": 3.6,
+    "fun": 3,
+    "diff": "易上手",
+    "hours": "年货",
+    "verdict": "体育年货，1折尝鲜可以"
+   },
+   "suitability": [
+    "篮球迷",
+    "年货党"
+   ],
+   "tags": [
+    "体育",
+    "年货",
+    "Switch2"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/nba2k26.jpg",
+    "url": "https://search.bilibili.com/all?keyword=NBA%202K26%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "sf6",
+   "name": "街头霸王6（Switch2版）",
+   "en": "Street Fighter 6",
+   "genres": [
+    "格斗"
+   ],
+   "zh": true,
+   "players": "1-2人",
+   "regions": {
+    "hk": {
+     "cur": 124,
+     "low": 124,
+     "lowDate": "2026-06-07",
+     "saleEnd": "2026-06-30",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 103,
+     "low": 103,
+     "lowDate": "2026-07-30",
+     "saleEnd": "2026-08-24",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-07",
+     "r": "hk",
+     "p": 124,
+     "t": "low",
+     "note": "5折史低"
+    },
+    {
+     "d": "2026-06-07",
+     "r": "jp",
+     "p": 106,
+     "t": "sale",
+     "note": "5折"
+    },
+    {
+     "d": "2026-07-30",
+     "r": "jp",
+     "p": 103,
+     "t": "low",
+     "note": "5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.8,
+    "fun": 5,
+    "diff": "上手易精通难",
+    "hours": "不限",
+    "verdict": "格斗天花板（MC92），Switch2版表现好"
+   },
+   "suitability": [
+    "格斗玩家",
+    "竞技党"
+   ],
+   "tags": [
+    "格斗",
+    "竞技",
+    "Switch2"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "jp"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/sf6.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E8%A1%97%E5%A4%B4%E9%9C%B8%E7%8E%8B6%EF%BC%88Switch2%E7%89%88%EF%BC%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "ittakestwo",
+   "name": "双人成行",
+   "en": "It Takes Two",
+   "genres": [
+    "双人合作",
+    "动作冒险"
+   ],
+   "zh": true,
+   "players": "2人",
+   "regions": {
+    "br": {
+     "cur": 129,
+     "low": 129,
+     "lowDate": "2026-06-26",
+     "saleEnd": "2026-07-09",
+     "onSale": false
+    },
+    "us": {
+     "cur": 135,
+     "low": 135,
+     "lowDate": "2026-06-26",
+     "saleEnd": "2026-07-09",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-26",
+     "r": "br",
+     "p": 129,
+     "t": "low",
+     "note": "5折史低"
+    },
+    {
+     "d": "2026-06-26",
+     "r": "us",
+     "p": 135,
+     "t": "low",
+     "note": "5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.8,
+    "fun": 5,
+    "diff": "适中",
+    "hours": "12-15小时",
+    "verdict": "双人游戏必玩，5折必入"
+   },
+   "suitability": [
+    "情侣/好友双人"
+   ],
+   "tags": [
+    "双人",
+    "必玩"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 130,
+    "region": "us"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/ittakestwo.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%8F%8C%E4%BA%BA%E6%88%90%E8%A1%8C%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "witcher3",
+   "name": "巫师3 狂猎 完整版",
+   "en": "The Witcher 3: Wild Hunt",
+   "genres": [
+    "开放世界",
+    "动作RPG"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 109,
+     "low": 109,
+     "lowDate": "2025-08-28",
+     "saleEnd": "2025-09-15",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2025-08-28",
+     "r": "hk",
+     "p": 109,
+     "t": "low",
+     "note": "2.5折史低"
+    },
+    {
+     "d": "2026-06-28",
+     "r": "hk",
+     "p": 87,
+     "t": "sale",
+     "note": "夏季促销"
+    },
+    {
+     "d": "2026-06-28",
+     "r": "hk",
+     "p": 87,
+     "t": "sale",
+     "note": "夏季促销"
+    }
+   ],
+   "rating": {
+    "community": 4.9,
+    "fun": 5,
+    "diff": "适中",
+    "hours": "100小时+",
+    "verdict": "NS移植标杆之一，掌机偏糊但值得"
+   },
+   "suitability": [
+    "剧情党",
+    "开放世界爱好者"
+   ],
+   "tags": [
+    "剧情神作",
+    "移植标杆",
+    "NS体验一般"
+   ],
+   "pcNote": "PC版画质/帧数碾压，NS版胜在便携；完整版含《石之心》《血与酒》两部大型DLC。",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 100,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/witcher3.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%B7%AB%E5%B8%883%20%E7%8B%82%E7%8C%8E%20%E5%AE%8C%E6%95%B4%E7%89%88%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "botw",
+   "name": "塞尔达传说 旷野之息",
+   "en": "The Legend of Zelda: Breath of the Wild",
+   "genres": [
+    "冒险",
+    "开放世界"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "cart": {
+     "cur": 235,
+     "low": 213,
+     "lowDate": "2026-09-11",
+     "saleEnd": null,
+     "onSale": false
+    },
+    "hk": {
+     "cur": null,
+     "tbd": true
+    }
+   },
+   "history": [
+    {
+     "d": "2026-09-11",
+     "r": "cart",
+     "p": 213,
+     "t": "low",
+     "note": "卡带新史低"
+    },
+    {
+     "d": "2026-09-14",
+     "r": "cart",
+     "p": 235,
+     "t": "sale",
+     "note": "卡带行情"
+    }
+   ],
+   "rating": {
+    "community": 5,
+    "fun": 5,
+    "diff": "适中",
+    "hours": "100小时+",
+    "verdict": "Switch时代最强之一，看到史低就入"
+   },
+   "suitability": [
+    "所有玩家",
+    "开放世界入门"
+   ],
+   "tags": [
+    "神作",
+    "保值",
+    "卡带坚挺"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 235,
+    "region": "cart"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/botw.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E6%97%B7%E9%87%8E%E4%B9%8B%E6%81%AF%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "totk",
+   "name": "塞尔达传说 王国之泪",
+   "en": "The Legend of Zelda: Tears of the Kingdom",
+   "genres": [
+    "冒险",
+    "开放世界"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "cart": {
+     "cur": 253,
+     "low": 253,
+     "lowDate": "2026-09-14",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-09-14",
+     "r": "cart",
+     "p": 253,
+     "t": "low",
+     "note": "卡带新史低"
+    }
+   ],
+   "rating": {
+    "community": 5,
+    "fun": 5,
+    "diff": "适中",
+    "hours": "120小时+",
+    "verdict": "续作天花板，卡带253值得入"
+   },
+   "suitability": [
+    "所有玩家",
+    "旷野之息通关者"
+   ],
+   "tags": [
+    "神作",
+    "卡带"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "cart"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/totk.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E7%8E%8B%E5%9B%BD%E4%B9%8B%E6%B3%AA%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "splatoon3",
+   "name": "喷射战士3（斯普拉遁3）",
+   "en": "Splatoon 3",
+   "genres": [
+    "射击",
+    "联机"
+   ],
+   "zh": true,
+   "players": "1-8人",
+   "regions": {
+    "cart": {
+     "cur": 191,
+     "low": 191,
+     "lowDate": "2026-09-14",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-09-14",
+     "r": "cart",
+     "p": 191,
+     "t": "low",
+     "note": "卡带新史低"
+    }
+   ],
+   "rating": {
+    "community": 4.7,
+    "fun": 5,
+    "diff": "易上手",
+    "hours": "不限",
+    "verdict": "任系联机派对之王，破200即可入"
+   },
+   "suitability": [
+    "联机玩家",
+    "休闲玩家"
+   ],
+   "tags": [
+    "联机",
+    "派对",
+    "卡带"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 200,
+    "region": "cart"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/splatoon3.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%96%B7%E5%B0%84%E6%88%98%E5%A3%AB3%EF%BC%88%E6%96%AF%E6%99%AE%E6%8B%89%E9%81%813%EF%BC%89%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "hades",
+   "name": "哈迪斯",
+   "en": "Hades",
+   "genres": [
+    "肉鸽",
+    "动作"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "jp": {
+     "cur": 34,
+     "nativeCur": 700,
+     "currency": "JPY",
+     "low": 34,
+     "lowDate": "2026-04-28",
+     "saleEnd": "2026-04-28",
+     "onSale": false
+    },
+    "br": {
+     "cur": 31,
+     "low": 31,
+     "lowDate": "2026-04-16",
+     "saleEnd": "2026-04-29",
+     "onSale": false
+    },
+    "us": {
+     "cur": 42,
+     "low": 42,
+     "lowDate": "2026-04-22",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-04-16",
+     "r": "br",
+     "p": 31,
+     "t": "low",
+     "note": "2.5折史低"
+    },
+    {
+     "d": "2026-04-22",
+     "r": "us",
+     "p": 42,
+     "t": "low",
+     "note": "2.5折"
+    },
+    {
+     "d": "2026-04-28",
+     "r": "jp",
+     "p": 34,
+     "t": "low",
+     "note": "700円 75%OFF"
+    }
+   ],
+   "rating": {
+    "community": 4.9,
+    "fun": 5,
+    "diff": "上手易精通难",
+    "hours": "60小时+",
+    "verdict": "肉鸽教科书，30元档闭眼入"
+   },
+   "suitability": [
+    "肉鸽爱好者",
+    "动作玩家"
+   ],
+   "tags": [
+    "肉鸽",
+    "神作",
+    "中文"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 35,
+    "region": "br"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/hades.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%93%88%E8%BF%AA%E6%96%AF%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "echoes",
+   "name": "塞尔达传说 智慧的再现",
+   "en": "The Legend of Zelda: Echoes of Wisdom",
+   "genres": [
+    "冒险",
+    "解谜"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 202,
+     "low": 202,
+     "lowDate": "2026-02-11",
+     "saleEnd": "2026-02-24",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 64,
+     "low": 64,
+     "lowDate": "2026-02-11",
+     "saleEnd": "2026-02-18",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-02-11",
+     "r": "hk",
+     "p": 202,
+     "t": "low",
+     "note": "7折史低"
+    },
+    {
+     "d": "2026-02-11",
+     "r": "jp",
+     "p": 64,
+     "t": "low",
+     "note": "7折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.4,
+    "fun": 4,
+    "diff": "轻松",
+    "hours": "30小时",
+    "verdict": "塞尔达新玩法，7折可入"
+   },
+   "suitability": [
+    "塞尔达粉",
+    "解谜爱好者"
+   ],
+   "tags": [
+    "塞尔达",
+    "解谜"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/echoes.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E5%A1%9E%E5%B0%94%E8%BE%BE%E4%BC%A0%E8%AF%B4%20%E6%99%BA%E6%85%A7%E7%9A%84%E5%86%8D%E7%8E%B0%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "nssports",
+   "name": "Nintendo Switch 运动",
+   "en": "Nintendo Switch Sports",
+   "genres": [
+    "体感",
+    "运动"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "hk": {
+     "cur": 134,
+     "low": 134,
+     "lowDate": "2026-02-11",
+     "saleEnd": "2026-02-24",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-02-11",
+     "r": "hk",
+     "p": 134,
+     "t": "low",
+     "note": "7折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.2,
+    "fun": 4,
+    "diff": "零门槛",
+    "hours": "不限",
+    "verdict": "合家欢体感，7折史低可入"
+   },
+   "suitability": [
+    "合家欢",
+    "体感玩家"
+   ],
+   "tags": [
+    "体感",
+    "派对"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/nssports.jpg",
+    "url": "https://search.bilibili.com/all?keyword=Nintendo%20Switch%20%E8%BF%90%E5%8A%A8%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "legodc",
+   "name": "乐高DC超级反派",
+   "en": "LEGO DC Super-Villains",
+   "genres": [
+    "动作",
+    "冒险"
+   ],
+   "zh": true,
+   "players": "1-2人",
+   "regions": {
+    "hk": {
+     "cur": 32,
+     "low": 32,
+     "lowDate": "2026-06-14",
+     "saleEnd": "2026-07-02",
+     "onSale": false
+    },
+    "jp": {
+     "cur": 25,
+     "low": 25,
+     "lowDate": "2026-06-14",
+     "saleEnd": "2026-07-02",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-06-14",
+     "r": "hk",
+     "p": 32,
+     "t": "low",
+     "note": "1折史低"
+    },
+    {
+     "d": "2026-06-14",
+     "r": "jp",
+     "p": 25,
+     "t": "low",
+     "note": "1折史低"
+    }
+   ],
+   "rating": {
+    "community": 4,
+    "fun": 4,
+    "diff": "轻松",
+    "hours": "20小时",
+    "verdict": "1折价格屠夫，DC/乐高粉入"
+   },
+   "suitability": [
+    "DC粉丝",
+    "乐高粉",
+    "亲子"
+   ],
+   "tags": [
+    "乐高",
+    "超英",
+    "白菜价"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/legodc.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E4%B9%90%E9%AB%98DC%E8%B6%85%E7%BA%A7%E5%8F%8D%E6%B4%BE%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "tgyh",
+   "name": "谢天谢地你来了",
+   "en": "Thank Goodness You're Here!",
+   "genres": [
+    "喜剧",
+    "冒险"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 50,
+     "low": 50,
+     "lowDate": "2026-09-08",
+     "saleEnd": "2026-10-01",
+     "onSale": true
+    },
+    "jp": {
+     "cur": 47,
+     "low": 47,
+     "lowDate": "2026-09-08",
+     "saleEnd": "2026-10-01",
+     "onSale": true
+    }
+   },
+   "history": [
+    {
+     "d": "2026-09-08",
+     "r": "hk",
+     "p": 50,
+     "t": "low",
+     "note": "5折史低"
+    },
+    {
+     "d": "2026-09-08",
+     "r": "jp",
+     "p": 47,
+     "t": "low",
+     "note": "5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.5,
+    "fun": 4,
+    "diff": "轻松",
+    "hours": "4-6小时",
+    "verdict": "英式无厘头喜剧，打折入超值"
+   },
+   "suitability": [
+    "喜剧爱好者",
+    "碎片时间"
+   ],
+   "tags": [
+    "喜剧",
+    "短流程"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/tgyh.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E8%B0%A2%E5%A4%A9%E8%B0%A2%E5%9C%B0%E4%BD%A0%E6%9D%A5%E4%BA%86%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "diablo3",
+   "name": "暗黑破坏神 万恶之源珍藏组合",
+   "en": "Diablo Prime Evil Collection",
+   "genres": [
+    "刷宝",
+    "动作RPG"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "hk": {
+     "tbd": true
+    },
+    "jp": {
+     "tbd": true
+    }
+   },
+   "history": [],
+   "lowInfo": "2026-09-04 速报为 3.3 折史低，具体价格待核实，登记价格后开始追踪。",
+   "rating": {
+    "community": 4.4,
+    "fun": 4,
+    "diff": "易上手",
+    "hours": "100小时+",
+    "verdict": "刷宝党福音，3.3折可入"
+   },
+   "suitability": [
+    "刷宝党",
+    "暗黑粉"
+   ],
+   "tags": [
+    "刷宝",
+    "联机"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/diablo3.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%9A%97%E9%BB%91%E7%A0%B4%E5%9D%8F%E7%A5%9E%20%E4%B8%87%E6%81%B6%E4%B9%8B%E6%BA%90%E7%8F%8D%E8%97%8F%E7%BB%84%E5%90%88%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "dbz",
+   "name": "七龙珠Z 卡卡洛特+新觉醒篇",
+   "en": "Dragon Ball Z: Kakarot + A New Power Awakens",
+   "genres": [
+    "动作RPG",
+    "开放世界"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 63,
+     "low": 63,
+     "lowDate": "2026-08-20",
+     "saleEnd": "2026-09-13",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-08-20",
+     "r": "hk",
+     "p": 63,
+     "t": "low",
+     "note": "5折史低"
+    }
+   ],
+   "rating": {
+    "community": 4.3,
+    "fun": 4,
+    "diff": "易上手",
+    "hours": "40小时",
+    "verdict": "龙珠粉必入，5折很值"
+   },
+   "suitability": [
+    "龙珠粉丝"
+   ],
+   "tags": [
+    "粉丝向",
+    "龙珠"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/dbz.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E4%B8%83%E9%BE%99%E7%8F%A0Z%20%E5%8D%A1%E5%8D%A1%E6%B4%9B%E7%89%B9%2B%E6%96%B0%E8%A7%89%E9%86%92%E7%AF%87%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "bokujou",
+   "name": "牧场物语 来吧！风之繁华集市",
+   "en": "Story of Seasons: Grand Bazaar",
+   "genres": [
+    "种田模拟"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "hk": {
+     "cur": 157,
+     "low": 157,
+     "lowDate": "2026-08-25",
+     "saleEnd": "2026-09-06",
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-08-25",
+     "r": "hk",
+     "p": 157,
+     "t": "low",
+     "note": "6折新史低"
+    }
+   ],
+   "rating": {
+    "community": 4.1,
+    "fun": 4,
+    "diff": "轻松",
+    "hours": "50小时+",
+    "verdict": "种田党可选，6折新史低"
+   },
+   "suitability": [
+    "种田党",
+    "休闲玩家"
+   ],
+   "tags": [
+    "种田",
+    "休闲"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "hk"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/bokujou.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E7%89%A7%E5%9C%BA%E7%89%A9%E8%AF%AD%20%E6%9D%A5%E5%90%A7%EF%BC%81%E9%A3%8E%E4%B9%8B%E7%B9%81%E5%8D%8E%E9%9B%86%E5%B8%82%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "acnh",
+   "name": "集合啦！动物森友会",
+   "en": "Animal Crossing: New Horizons",
+   "genres": [
+    "种田模拟",
+    "社交"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "hk": {
+     "cur": 329,
+     "low": null,
+     "lowDate": null,
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [],
+   "rating": {
+    "community": 4.8,
+    "fun": 5,
+    "diff": "零门槛",
+    "hours": "不限",
+    "verdict": "社交种田天花板，价格坚挺，想玩就入"
+   },
+   "suitability": [
+    "所有玩家",
+    "社交玩家",
+    "休闲党"
+   ],
+   "tags": [
+    "常青",
+    "保值",
+    "社交"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 299,
+    "region": "hk"
+   },
+   "comments": [
+    {
+     "c": "评论区高频：动森什么时候打折？现在该不该入？",
+     "src": "评论区",
+     "d": "2026-09-05"
+    }
+   ],
+   "demo": {
+    "img": "assets/acnh.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E9%9B%86%E5%90%88%E5%95%A6%EF%BC%81%E5%8A%A8%E7%89%A9%E6%A3%AE%E5%8F%8B%E4%BC%9A%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "stardew",
+   "name": "星露谷物语",
+   "en": "Stardew Valley",
+   "genres": [
+    "种田模拟"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "jp": {
+     "cur": 66,
+     "nativeCur": 1345,
+     "currency": "JPY",
+     "low": null,
+     "lowDate": null,
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [],
+   "lowInfo": "日区常价 1345円，打折不频繁，见到 -20% 以上即可入。",
+   "rating": {
+    "community": 4.9,
+    "fun": 5,
+    "diff": "轻松",
+    "hours": "100小时+",
+    "verdict": "百元内神作，原价买也不亏"
+   },
+   "suitability": [
+    "种田党",
+    "休闲玩家",
+    "所有玩家"
+   ],
+   "tags": [
+    "常青",
+    "神作",
+    "少打折"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 55,
+    "region": "jp"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/stardew.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%98%9F%E9%9C%B2%E8%B0%B7%E7%89%A9%E8%AF%AD%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "hollowknight",
+   "name": "空洞骑士",
+   "en": "Hollow Knight",
+   "genres": [
+    "银河城",
+    "动作"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "us": {
+     "cur": 108,
+     "nativeCur": 15,
+     "currency": "USD",
+     "low": null,
+     "lowDate": null,
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [],
+   "lowInfo": "美服常价 $15，史低约 5 折（$7.5 档），蹲到 5 折再入。",
+   "rating": {
+    "community": 4.9,
+    "fun": 5,
+    "diff": "较难",
+    "hours": "40-60小时",
+    "verdict": "2D银河城巅峰，原价买都值"
+   },
+   "suitability": [
+    "硬核玩家",
+    "银河城爱好者"
+   ],
+   "tags": [
+    "常青",
+    "神作",
+    "难度高"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": true,
+    "target": 55,
+    "region": "us"
+   },
+   "comments": [
+    {
+     "c": "评论区高频：空洞骑士现在该不该入？",
+     "src": "评论区",
+     "d": "2026-09-08"
+    }
+   ],
+   "demo": {
+    "img": "assets/hollowknight.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "deadcells",
+   "name": "死亡细胞",
+   "en": "Dead Cells",
+   "genres": [
+    "肉鸽",
+    "横版动作"
+   ],
+   "zh": true,
+   "players": "1人",
+   "regions": {
+    "jp": {
+     "cur": 34,
+     "low": 34,
+     "lowDate": "2026-02-22",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-02-22",
+     "r": "jp",
+     "p": 34,
+     "t": "low",
+     "note": "70%折扣史低"
+    }
+   ],
+   "rating": {
+    "community": 4.6,
+    "fun": 5,
+    "diff": "较难",
+    "hours": "60小时+",
+    "verdict": "爽快肉鸽，7折 off 超值"
+   },
+   "suitability": [
+    "肉鸽爱好者"
+   ],
+   "tags": [
+    "肉鸽",
+    "爽快"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "jp"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/deadcells.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%AD%BB%E4%BA%A1%E7%BB%86%E8%83%9E%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "unravel2",
+   "name": "毛线小精灵2",
+   "en": "Unravel Two",
+   "genres": [
+    "双人合作",
+    "平台跳跃"
+   ],
+   "zh": true,
+   "players": "1-2人",
+   "regions": {
+    "nz": {
+     "cur": 37,
+     "low": 37,
+     "lowDate": "2026-02-22",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-02-22",
+     "r": "nz",
+     "p": 37,
+     "t": "low",
+     "note": "70%折扣史低"
+    }
+   ],
+   "rating": {
+    "community": 4.5,
+    "fun": 4,
+    "diff": "适中",
+    "hours": "8小时",
+    "verdict": "唯美双人合作，70% off 可入"
+   },
+   "suitability": [
+    "双人党",
+    "剧情党"
+   ],
+   "tags": [
+    "双人",
+    "唯美"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "nz"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/unravel2.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%AF%9B%E7%BA%BF%E5%B0%8F%E7%B2%BE%E7%81%B52%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
+  },
+  {
+   "id": "sohr4",
+   "name": "怒之铁拳4",
+   "en": "Streets of Rage 4",
+   "genres": [
+    "横版动作"
+   ],
+   "zh": true,
+   "players": "1-4人",
+   "regions": {
+    "jp": {
+     "cur": 35,
+     "low": 35,
+     "lowDate": "2026-02-22",
+     "saleEnd": null,
+     "onSale": false
+    }
+   },
+   "history": [
+    {
+     "d": "2026-02-22",
+     "r": "jp",
+     "p": 35,
+     "t": "low",
+     "note": "70%折扣史低"
+    }
+   ],
+   "rating": {
+    "community": 4.6,
+    "fun": 4,
+    "diff": "适中",
+    "hours": "20小时",
+    "verdict": "爽快清版格斗，同屏4人"
+   },
+   "suitability": [
+    "动作玩家",
+    "怀旧党"
+   ],
+   "tags": [
+    "清版",
+    "联机"
+   ],
+   "pcNote": "",
+   "video": {
+    "title": "",
+    "url": ""
+   },
+   "watch": {
+    "on": false,
+    "target": 0,
+    "region": "jp"
+   },
+   "comments": [],
+   "demo": {
+    "img": "assets/sohr4.jpg",
+    "url": "https://search.bilibili.com/all?keyword=%E6%80%92%E4%B9%8B%E9%93%81%E6%8B%B34%20Switch%20%E8%AF%95%E7%8E%A9",
+    "label": "试玩视频"
+   }
   }
+ ],
+ "ideas": [
+  {
+   "text": "动森什么时候打折？值得买吗",
+   "tag": "蹲折扣",
+   "status": "done",
+   "d": "2026-09-01"
+  },
+  {
+   "text": "星露谷 NS 版和 PC 版怎么选",
+   "tag": "跨平台",
+   "status": "todo",
+   "d": "2026-09-02"
+  },
+  {
+   "text": "空洞骑士现在该不该入",
+   "tag": "蹲折扣",
+   "status": "todo",
+   "d": "2026-09-08"
+  },
+  {
+   "text": "换区会被清空余额吗？怎么操作",
+   "tag": "换区教程",
+   "status": "todo",
+   "d": "2026-09-03"
+  },
+  {
+   "text": "霍格沃茨之遗推荐玩吗？NS版值不值",
+   "tag": "跨平台",
+   "status": "todo",
+   "d": "2026-08-12"
+  },
+  {
+   "text": "求本周史低汇总",
+   "tag": "史低速报",
+   "status": "done",
+   "d": "2026-09-15"
+  },
+  {
+   "text": "文明6好玩吗，适合什么人",
+   "tag": "好不好玩",
+   "status": "todo",
+   "d": "2026-09-10"
+  },
+  {
+   "text": "哪些游戏 NS 版体验差，建议等 PC/买卡带",
+   "tag": "跨平台",
+   "status": "todo",
+   "d": "2026-09-12"
+  },
+  {
+   "text": "巴西区怎么付款？点卡充值安全吗",
+   "tag": "换区教程",
+   "status": "todo",
+   "d": "2026-09-06"
+  }
+ ],
+ "meta": {
+  "dataDate": "2026-09-20",
+  "rates": {
+   "JPY": 0.048,
+   "HKD": 0.92,
+   "USD": 7.15,
+   "BRL": 1.28,
+   "NZD": 4.3,
+   "CNY": 1
+  },
+  "note": "种子数据来自公开史低速报（2026 年快照），价格为人民币折算参考，部分待核实。登记新价格即可更新追踪。"
+ }
 }
