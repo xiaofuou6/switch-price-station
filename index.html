@@ -221,9 +221,9 @@ const REGIONS = [
 ];
 const GENRES = ['策略','开放世界','动作RPG','共斗','双人合作','格斗','体育','冒险','肉鸽','体感','种田模拟','银河城','喜剧','射击','横版动作','刷宝'];
 const NAV = [
-  {id:'dashboard', label:'仪表盘'},
-  {id:'library', label:'游戏库'},
   {id:'deals', label:'每日折扣'},
+  {id:'library', label:'游戏库'},
+  {id:'dashboard', label:'仪表盘'},
   {id:'watchlist', label:'蹲折扣清单'},
   {id:'reviews', label:'好不好玩'},
   {id:'studio', label:'内容工作台'},
@@ -504,9 +504,10 @@ function saveDB(){ localStorage.setItem(LS_KEY, JSON.stringify(DB)); }
 function getGame(id){ return DB.games.find(g=>g.id===id); }
 /* 试玩 Demo 数据：画面 + 外部跳转链接（可在编辑弹窗中修改） */
 function demoFor(g){
+  const kw = encodeURIComponent((g.name||g.en||'')+' Switch 试玩');
   return { img:'assets/'+g.id+'.jpg',
-    url:'https://www.bing.com/search?q='+encodeURIComponent((g.name||g.en||'')+' Switch 官方试玩 Demo'),
-    label:'打开试玩 / Demo 信息' };
+    url:'https://search.bilibili.com/all?keyword='+kw,
+    label:'试玩视频' };
 }
 function regionOf(g, key){ return g.regions[key] || null; }
 /* 折扣规律：某区打折记录的平均间隔（天） */
@@ -709,7 +710,7 @@ function renderLibraryCards(list){
     }).join('');
     const ws = watchState(g);
     return '<div class="game-card" onclick="navigate(\'detail\',\''+g.id+'\')">'
-      + '<div class="g-cover"><img loading="lazy" src="'+esc((g.demo&&g.demo.img)||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 游戏画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="no-cover">暂无画面</div></div>'
+      + '<a class="g-cover" href="'+esc((g.demo&&g.demo.url)||demoFor(g).url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="点开看试玩视频"><img loading="lazy" src="'+esc((g.demo&&g.demo.img)||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 试玩画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="no-cover">暂无画面</div></a>'
       + '<div class="g-top"><div style="flex:1"><div class="g-name">'+esc(g.name)+'</div><div class="g-en">'+esc(g.en)+'</div></div>'
       + (lows.length?'<span class="badge low">史低中</span>':'')+(ws&&ws.hit?'<span class="badge wait">已到价</span>':'')
       + '</div>'
