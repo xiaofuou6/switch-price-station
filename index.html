@@ -685,25 +685,25 @@ function renderDeals(){
   return html;
 }
 function hotSection(){
-  // 2026 值得关注的热门 Switch 游戏（静态推荐）
   const HOT = [
-    {name:'宝可梦传说 Z-A', note:'系列开放世界新作，都市舞台', hue:265},
-    {name:'Metroid Prime 4', note:'银河战士 Prime 系列正统续作', hue:200},
-    {name:'Donkey Kong Bananza', note:'大金刚 3D 平台跳跃新作', hue:25},
-    {name:'马力欧赛车世界', note:'马力欧赛车系列新作', hue:10},
-    {name:'Hollow Knight: Silksong', note:'空洞骑士续作，等了多年', hue:150},
-    {name:'皮克敏 5', note:'任天堂 RTS 新作', hue:90},
-    {name:'塞尔达传说 新作', note:'传说中的下一座开放世界', hue:45},
-    {name:'星露谷物语 1.6', note:'PC 神作最新版已上 Switch', hue:120}
+    {name:'宝可梦传说 Z-A', note:'百代市舞台，宝可梦开放世界新作', image:'https://cdn.dekudeals.com/images/297fb9a47f23f4d3245cd70cc3f7f3ed29f17967/w540.jpg'},
+    {name:'Metroid Prime 4: Beyond', note:'萨姆斯对决死敌 Sylux，全新 3D 星球', image:'https://cdn.dekudeals.com/images/608e690fcb9a889cb403069cda7946b1058deae0/w540.jpg'},
+    {name:'Donkey Kong Bananza', note:'大金刚拆墙挖洞，3D 平台跳跃', image:'https://cdn.dekudeals.com/images/f4fabd96a4c588a0184812f8b9f72cb29995f076/w540.jpg'},
+    {name:'马力欧赛车世界', note:'整个世界就是赛道，无缝开放世界', image:'https://cdn.dekudeals.com/images/939f1fc7e2b3bca4fb208d2c5c34cf7000c0e33c/w540.jpg'},
+    {name:'Hollow Knight: Silksong', note:'空洞骑士续作，黄蜂女全新大陆冒险', image:'https://cdn.dekudeals.com/images/0ac5e867c33ce4af285a2bb3c1f97ef6c0128870/w540.jpg'},
+    {name:'塞尔达传说：智慧的回响', note:'林克失踪，塞尔达公主亲自上阵', image:'https://cdn.dekudeals.com/images/b7262d08719f3623df8781060fb1b7adadfd95f0/w540.jpg'},
+    {name:'星露谷物语', note:'继承爷爷农场，种田生活模拟神作', image:'https://cdn.dekudeals.com/images/6b2442409b7b5c3aeaec8c5d92aa29b264639dfa/w540.jpg'},
+    {name:'皮克敏 4', note:'指挥迷你皮克敏，全新冰系皮克敏登场', image:'https://cdn.dekudeals.com/images/3ccead7560470d39e4b33ba856fa529ba58025c9/w540.jpg'}
   ];
   const cards = HOT.map(h=>{
-    const kw = encodeURIComponent(h.name+' Switch 2026 评测');
+    const kw = encodeURIComponent(h.name+' Switch 评测');
+    const cover = '<img src="'+h.image+'" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;margin-bottom:8px;background:#0B111D" alt="'+h.name+'">';
     return '<a class="hot-card" href="https://search.bilibili.com/all?keyword='+kw+'" target="_blank" rel="noopener">'
-      + '<div class="hc-cover" style="background:linear-gradient(135deg,hsl('+h.hue+',60%,45%),hsl('+(h.hue+40)+',60%,30%))">'+esc(h.name)+'</div>'
-      + '<div class="hc-name">'+esc(h.name)+'</div>'
-      + '<div class="hc-note">'+esc(h.note)+'</div></a>';
+      + cover
+      + '<div class="hc-name">'+h.name+'</div>'
+      + '<div class="hc-note">'+h.note+'</div></a>';
   }).join('');
-  return '<div class="section-title">2026 值得关注 <span class="more">点卡片看 B 站评测 ↗</span></div><div class="hot-strip">'+cards+'</div>';
+  return '<div class="section-title">2026 值得关注 <span class="more">封面来自 Nintendo eShop · 点卡片看 B 站评测 ↗</span></div><div class="hot-strip">'+cards+'</div>';
 }
 function weeklyLowSection(){
   const d = DB.deals;
