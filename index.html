@@ -96,7 +96,7 @@ a{color:var(--cyan);text-decoration:none}
 .price-chip.wait{color:var(--amber);border-color:rgba(245,166,35,.45)}
 .price-chip.tbd{color:var(--tx3);border-style:dashed}
 .game-card .g-foot{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:9px}
-.game-card .g-cover{height:104px;border-radius:8px;overflow:hidden;background:#0B111D;margin-bottom:2px}
+.game-card .g-cover{height:72px;border-radius:6px;overflow:hidden;background:#0B111D;margin-bottom:8px;flex:0 0 auto}
 .game-card .g-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .game-card .g-cover .no-cover{display:none;width:100%;height:100%;align-items:center;justify-content:center;color:var(--tx3);font-size:12px}
 .deal-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-bottom:10px;background:#0B111D;display:block}
@@ -743,7 +743,7 @@ function renderLibrary(){
   else if(FILTER.sort==='low') list.sort((a,b)=>lowOf(b)-lowOf(a));
   else list.sort((a,b)=>a.name.localeCompare(b.name,'zh'));
   function lowOf(g){ let m=null; Object.values(g.regions).forEach(r=>{ if(r&&r.cur!=null&&(m==null||r.cur<m)) m=r.cur; }); return m||0; }
-  let html = weeklyLowSection() + hotSection() + '<div class="toolbar">'
+  let html = hotSection() + '<div class="toolbar">'
     + '<div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="q" placeholder="搜索游戏名 / 标签 / 类型" value="'+esc(FILTER.q)+'" oninput="FILTER.q=this.value;document.getElementById(\'lib-body\').innerHTML=renderLibraryCards()"></div>'
     + '<select onchange="FILTER.genre=this.value;refreshLib()"><option value="">全部分类</option>'+GENRES.map(g=>'<option'+(FILTER.genre===g?' selected':'')+'>'+g+'</option>').join('')+'</select>'
     + '<label class="chip" style="cursor:pointer"><input type="checkbox" '+(FILTER.zh?'checked':'')+' onchange="FILTER.zh=this.checked;refreshLib()" style="accent-color:var(--green)"> 支持中文</label>'
