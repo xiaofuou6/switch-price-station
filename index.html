@@ -242,7 +242,7 @@ const REGIONS = [
 ];
 const GENRES = ['策略','开放世界','动作RPG','共斗','双人合作','格斗','体育','冒险','肉鸽','体感','种田模拟','银河城','喜剧','射击','横版动作','刷宝'];
 const NAV = [
-  {id:'deals', label:'每日折扣'},
+  {id:'deals', label:'每周折扣'},
   {id:'library', label:'游戏库'},
   {id:'dashboard', label:'仪表盘'},
   {id:'watchlist', label:'蹲折扣清单'},
@@ -499,7 +499,7 @@ function fetchRemoteData(force){
     .catch(()=>{});
   fetch('data/deals.json', {cache:'no-store'})
     .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
-    .then(j=>{ DB.deals = j; saveDB(); toast('已更新每日折扣（'+(j.meta&&j.meta.count||0)+' 条）'); route(); })
+    .then(j=>{ DB.deals = j; saveDB(); toast('已更新每周折扣（'+(j.meta&&j.meta.count||0)+' 条）'); route(); })
     .catch(()=>{});
 }
 function mergeRemote(remote){
@@ -593,7 +593,7 @@ function renderNav(){
 }
 function renderTopbar(){
   const cur = parseHash().view;
-  const titles = {dashboard:'仪表盘', library:'游戏库', deals:'每日折扣', detail:'游戏详情', watchlist:'蹲折扣清单', reviews:'好不好玩', studio:'内容工作台', settings:'设置与数据'};
+  const titles = {dashboard:'仪表盘', library:'游戏库', deals:'每周折扣', detail:'游戏详情', watchlist:'蹲折扣清单', reviews:'好不好玩', studio:'内容工作台', settings:'设置与数据'};
   const ac = DB.games.filter(g=>{const s=watchState(g); return s&&s.hit;}).length;
   $('#topbar').innerHTML = '<h2>'+titles[cur]+'</h2>'
     + '<span class="chip">数据日期 '+esc(DB.meta.dataDate)+'</span>'
@@ -666,15 +666,15 @@ function renderDashboard(){
   return html;
 }
 /* ============ 游戏库 ============ */
-/* ============ 每日折扣（外部采集） ============ */
+/* ============ 每周折扣（外部采集） ============ */
 function renderDeals(){
   const d = DB.deals;
   if(!d || !Array.isArray(d.items) || !d.items.length){
-    return '<div class="card"><div class="empty"><b>还没有每日折扣数据</b>部署后会自动从 data/deals.json 拉取外部采集的折扣；你也可以在设置页点「立即同步远程数据」。</div></div>';
+    return '<div class="card"><div class="empty"><b>还没有每周折扣数据</b>部署后会自动从 data/deals.json 拉取外部采集的折扣；你也可以在设置页点「立即同步远程数据」。</div></div>';
   }
   const meta = d.meta || {};
   let html = '<div class="panel" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'
-    + '<div><b style="font-size:15px">'+esc(meta.region||'')+' 当前折扣 · '+d.items.length+' 款</b>'
+    + '<div><b style="font-size:15px">'+esc(meta.region||'')+' 本周折扣 · '+d.items.length+' 款</b>'
     + '<div style="font-size:12px;color:var(--tx2);margin-top:4px">采集于 '+esc(meta.collectedAt||'')+' · 来源 '+esc(meta.source||'外部采集')+' · 价格为日元按汇率 '+meta.rateJpy+' 折算人民币</div></div>'
     + '<button class="btn" onclick="fetchRemoteData(true)">重新同步</button></div></div>';
   html += '<div class="game-grid">' + d.items.map(it=>{
@@ -729,7 +729,7 @@ function weeklyLowSection(){
       + '<div class="hc-name">'+esc(it.name)+'</div>'
       + '<div class="hc-note"><b style="color:var(--green)">史低 ¥'+it.nowCny+'</b> <span style="color:var(--tx2)">-'+it.off+'%</span></div></a>';
   }).join('');
-  return '<div class="section-title">本周史低（'+lows.length+' 款）<span class="more">数据来自每日折扣 · 点卡片跳转详情 ↗</span></div><div class="hot-strip">'+cards+'</div>';
+  return '<div class="section-title">本周史低（'+lows.length+' 款）<span class="more">数据来自每周折扣 · 点卡片跳转详情 ↗</span></div><div class="hot-strip">'+cards+'</div>';
 }
 function renderLibrary(){
   let list = DB.games.slice();
