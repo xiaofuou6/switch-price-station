@@ -97,6 +97,10 @@ a{color:var(--cyan);text-decoration:none}
 .price-chip.tbd{color:var(--tx3);border-style:dashed}
 .game-card .g-foot{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:9px}
 .game-card .g-cover{display:block;height:72px;border-radius:6px;overflow:hidden;background:#0B111D;margin-bottom:8px;flex:0 0 auto}
+.lib-card{display:flex;gap:12px;align-items:stretch}
+.lib-card .g-cover{flex:0 0 108px;width:108px;height:76px;margin-bottom:0}
+.lib-card .g-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.lib-card .g-foot{margin-top:auto}
 .game-card .g-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .game-card .g-cover .no-cover{display:none;width:100%;height:100%;align-items:center;justify-content:center;color:var(--tx3);font-size:12px}
 .deal-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-bottom:10px;background:#0B111D;display:block}
@@ -766,14 +770,14 @@ function renderLibraryCards(list){
       return '<span class="price-chip'+(cls?' '+cls:'')+'">'+esc(REGIONS.find(x=>x.key===k).label)+' '+txt+'</span>';
     }).join('');
     const ws = watchState(g);
-    return '<div class="game-card" onclick="navigate(\'detail\',\''+g.id+'\')">'
+    return '<div class="game-card lib-card" onclick="navigate(\'detail\',\''+g.id+'\')">'
       + '<a class="g-cover" href="'+esc((g.demo&&g.demo.url)||demoFor(g).url)+'" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="点开看试玩视频"><img loading="lazy" src="'+esc((g.demo&&g.demo.img)||('assets/'+g.id+'.jpg'))+'" alt="'+esc(g.name)+' 试玩画面" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><div class="no-cover">暂无画面</div></a>'
-      + '<div class="g-top"><div style="flex:1"><div class="g-name">'+esc(g.name)+'</div><div class="g-en">'+esc(g.en)+'</div></div>'
+      + '<div class="g-info"><div class="g-top"><div style="flex:1;min-width:0"><div class="g-name">'+esc(g.name)+'</div><div class="g-en">'+esc(g.en)+'</div></div>'
       + (lows.length?'<span class="badge low">史低中</span>':'')+(ws&&ws.hit?'<span class="badge wait">已到价</span>':'')
       + '</div>'
       + '<div class="g-tags">'+g.genres.slice(0,3).map(x=>'<span class="tag">'+esc(x)+'</span>').join('')+(g.pcNote?'<span class="tag r">NS体验一般</span>':'')+'</div>'
       + '<div class="g-prices">'+prices+'</div>'
-      + '<div class="g-foot"><span class="stars">'+stars(g.rating.community)+'</span><span class="verdict">'+esc(g.rating.verdict)+'</span></div>'
+      + '<div class="g-foot"><span class="stars">'+stars(g.rating.community)+'</span><span class="verdict">'+esc(g.rating.verdict)+'</span></div></div>'
       + '</div>';
   }).join('')+'</div>';
 }
