@@ -598,7 +598,7 @@ function renderTopbar(){
   $('#topbar').innerHTML = '<h2>'+titles[cur]+'</h2>'
     + '<span class="chip">数据日期 '+esc(DB.meta.dataDate)+'</span>'
     + (ac>0 ? '<span class="chip green" onclick="navigate(\'watchlist\')" style="cursor:pointer">'+ac+' 个蹲守已到价</span>' : '')
-    + '<button class="btn primary" onclick="addGameModal()">+ 新增游戏</button>';
+    + (cur!=='deals' ? '<button class="btn primary" onclick="addGameModal()">+ 新增游戏</button>' : '');
 }
 function route(){
   renderNav(); renderTopbar();
@@ -676,7 +676,7 @@ function renderDeals(){
   let html = '<div class="panel" style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'
     + '<div><b style="font-size:15px">'+esc(meta.region||'')+' 本周折扣 · '+d.items.length+' 款</b>'
     + '<div style="font-size:12px;color:var(--tx2);margin-top:4px">采集于 '+esc(meta.collectedAt||'')+' · 来源 '+esc(meta.source||'外部采集')+' · 价格为日元按汇率 '+meta.rateJpy+' 折算人民币</div></div>'
-    + '<button class="btn" onclick="fetchRemoteData(true)">重新同步</button></div></div>';
+    + '</div></div>';
   html += '<div class="game-grid">' + d.items.map(it=>{
     const off = it.off!=null ? '-'+it.off+'%' : '';
     const lowBadge = it.lowest ? '<span class="badge low">史低</span>' : '';
